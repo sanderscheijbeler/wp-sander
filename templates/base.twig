@@ -1,0 +1,43 @@
+{% block html_head_container %}
+
+    {% include 'html-header.twig' %}
+    {% block head %}
+    {% endblock %}
+    </head>
+{% endblock %}
+
+<body class="{{ body_class }}" data-template="base.twig">
+
+<header class="header__wrapper">
+    {% block header %}
+        <div class="header__content">
+            <h1 class="header__logo">
+                <a class="header__link" href="{{ site.url }}">
+                    {{ site.name }}
+                </a>
+            </h1>
+            <nav id="nav-main" class="nav__main" role="navigation">
+                {% include "menu.twig" with {'menu': menu.get_items} %}
+            </nav>
+        </div>
+    {% endblock %}
+</header>
+
+<main class="content__wrapper">
+    {% block content %}
+        <h1>
+            Base content placeholder
+        </h1>
+    {% endblock %}
+</main>
+
+<footer class="footer__wrapper">
+    {% block footer %}
+
+        {% include 'footer.twig' %}
+
+    {% endblock %}
+</footer>
+{{ function('wp_footer') }}
+</body>
+</html>

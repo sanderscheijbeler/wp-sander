@@ -1,167 +1,55 @@
 "use strict";
 
-/**
- * File navigation.js.
- *
- * Handles toggling the navigation menu for small screens and enables TAB key
- * navigation support for dropdown menus.
- */
-(function () {
-  var container, button, menu, links, i, len;
-  container = document.getElementById('site-navigation');
+// element variables
+var els = {
+  header: document.querySelector('header.header__wrapper') // init varibles
 
-  if (!container) {
-    return;
-  }
+};
+var didScroll,
+    lastScrollTop = 0,
+    delta = 5,
+    navbarHeight = els.header.offsetHeight; // get current scroll
 
-  button = container.getElementsByTagName('button')[0];
-
-  if ('undefined' === typeof button) {
-    return;
-  }
-
-  menu = container.getElementsByTagName('ul')[0]; // Hide menu toggle button if menu is empty and return early.
-
-  if ('undefined' === typeof menu) {
-    button.style.display = 'none';
-    return;
-  }
-
-  menu.setAttribute('aria-expanded', 'false');
-
-  if (-1 === menu.className.indexOf('nav-menu')) {
-    menu.className += ' nav-menu';
-  }
-
-  button.onclick = function () {
-    if (-1 !== container.className.indexOf('toggled')) {
-      container.className = container.className.replace(' toggled', '');
-      button.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('aria-expanded', 'false');
-    } else {
-      container.className += ' toggled';
-      button.setAttribute('aria-expanded', 'true');
-      menu.setAttribute('aria-expanded', 'true');
-    }
-  }; // Get all the link elements within the menu.
+function getCurrentScroll() {
+  return window.pageYOffset || document.documentElement.scrollTop;
+} // what happens on scroll
 
 
-  links = menu.getElementsByTagName('a'); // Each time a menu link is focused or blurred, toggle focus.
+function menuOnScroll() {
+  var currentScroll = getCurrentScroll();
+  if (Math.abs(lastScrollTop - currentScroll) <= delta) return;
 
-  for (i = 0, len = links.length; i < len; i++) {
-    links[i].addEventListener('focus', toggleFocus, true);
-    links[i].addEventListener('blur', toggleFocus, true);
-  }
-  /**
-   * Sets or removes .focus class on an element.
-   */
-
-
-  function toggleFocus() {
-    var self = this; // Move up through the ancestors of the current link until we hit .nav-menu.
-
-    while (-1 === self.className.indexOf('nav-menu')) {
-      // On li elements toggle the class .focus.
-      if ('li' === self.tagName.toLowerCase()) {
-        if (-1 !== self.className.indexOf('focus')) {
-          self.className = self.className.replace(' focus', '');
-        } else {
-          self.className += ' focus';
-        }
-      }
-
-      self = self.parentElement;
+  if (currentScroll > lastScrollTop && currentScroll > navbarHeight) {
+    els.header.classList.add('header__wrapper--hidden');
+  } else {
+    if (currentScroll + window.innerHeight < document.documentElement.scrollHeight) {
+      els.header.classList.remove('header__wrapper--hidden');
     }
   }
-  /**
-   * Toggles `focus` class to allow submenu access on tablets.
-   */
+
+  lastScrollTop = currentScroll;
+} // show menu when mouse hovers menu area
 
 
-  (function (container) {
-    var touchStartFn,
-        i,
-        parentLink = container.querySelectorAll('.menu-item-has-children > a, .page_item_has_children > a');
+document.body.onmousemove = function (e) {
+  var pageY = e.pageY || e.clientY,
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop,
+      trigger_area = pageY - scrollTop,
+      trigger_threshold = navbarHeight;
 
-    if ('ontouchstart' in window) {
-      touchStartFn = function touchStartFn(e) {
-        var menuItem = this.parentNode,
-            i;
-
-        if (!menuItem.classList.contains('focus')) {
-          e.preventDefault();
-
-          for (i = 0; i < menuItem.parentNode.children.length; ++i) {
-            if (menuItem === menuItem.parentNode.children[i]) {
-              continue;
-            }
-
-            menuItem.parentNode.children[i].classList.remove('focus');
-          }
-
-          menuItem.classList.add('focus');
-        } else {
-          menuItem.classList.remove('focus');
-        }
-      };
-
-      for (i = 0; i < parentLink.length; ++i) {
-        parentLink[i].addEventListener('touchstart', touchStartFn, false);
-      }
-    }
-  })(container);
-})();
-"use strict";
-
-/**
- * File skip-link-focus-fix.js.
- *
- * Helps with accessibility for keyboard only users.
- *
- * Learn more: https://git.io/vWdr2
- */
-(function () {
-  var isIe = /(trident|msie)/i.test(navigator.userAgent);
-
-  if (isIe && document.getElementById && window.addEventListener) {
-    window.addEventListener('hashchange', function () {
-      var id = location.hash.substring(1),
-          element;
-
-      if (!/^[A-z0-9_-]+$/.test(id)) {
-        return;
-      }
-
-      element = document.getElementById(id);
-
-      if (element) {
-        if (!/^(?:a|select|input|button|textarea)$/i.test(element.tagName)) {
-          element.tabIndex = -1;
-        }
-
-        element.focus();
-      }
-    }, false);
+  if (trigger_area <= trigger_threshold) {
+    els.header.classList.remove('header__wrapper--hidden');
   }
-})();
-"use strict";
+}; // set on scroll behavior
 
-$(document).ready(function () {
-  /*
-      if ( $('#sliderVoorbeeld') ) {
-  
-          $('#sliderVoorbeeld').slick({
-          dots: true,
-          arrows: false,
-          fade: true,
-          speed: 500,
-          slidesToShow: 1,
-          customPaging: function (slider, i) {
-              var thumb = $(slider.$slides[i]).data();
-              return '<a>' + parseInt(i + 1) + '</a>';
-          },
-      });
-  
-      }
-  */
-});
+
+window.onscroll = function () {
+  didScroll = true;
+};
+
+setInterval(function () {
+  if (didScroll) {
+    menuOnScroll();
+    didScroll = false;
+  }
+}, 250);

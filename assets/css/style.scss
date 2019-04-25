@@ -1,112 +1,30 @@
-/*!
+// ===========================================
+//
+// Base files
+//
+// ===========================================
 
-Theme Name: jb
-Theme URI: http://underscores.me/
-Author: Team FS
-Author URI: http://Team%20FS
-Description: A wordpress theme made for Jim
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: jb
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+@import "base/normalize";
+@import "base/bootstrap-grid";
+@import "base/mixins";
+@import "base/slick";
+@import "base/slick-theme";
+@import "base/variables";
 
-*/
+// ===========================================
+//
+// Sections
+//
+// ===========================================
 
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Normalize
-# Bootstrap 4
-# Slick
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
-@import "variables-site/variables-site";
-@import "mixins/mixins-master";
+@import "sections/body";
+@import "sections/header";
+@import "sections/content";
+@import "sections/footer";
 
-/*--------------------------------------------------------------
-# Normalize 8.0.0
---------------------------------------------------------------*/
-@import "normalize";
+// ===========================================
+//
+// Blocks
+//
+// ===========================================
 
-/*--------------------------------------------------------------
-# Bootstrap 4
---------------------------------------------------------------*/
-@import "bootstrap/bootstrap-grid";
-
-/*--------------------------------------------------------------
-# Slick
---------------------------------------------------------------*/
-@import "slick/slick";
-@import "slick/slick-theme";
-
-/*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-@import "typography/typography";
-
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-@import "elements/elements";
-
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-@import "forms/forms";
-
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------*/
-@import "navigation/navigation";
-
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-@import "modules/accessibility";
-
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-@import "modules/alignments";
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-@import "modules/clearings";
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-@import "site/secondary/widgets";
-
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-@import "site/site";
-
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-@import "modules/infinite-scroll";
-
-/*--------------------------------------------------------------
-# Media
---------------------------------------------------------------*/
-@import "media/media";
