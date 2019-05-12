@@ -1,11 +1,14 @@
-<div class="blog-comment {{ comment.comment_type }}" id="blog-comment-{{ comment.ID }}">
-    <h5 class="comment-author">{{ comment.author.name }} says</h5>
-    <div class="comment-content">{{ comment.comment_content|wpautop }}</div>
+<div class="section-comment__message {{ comment.comment_type }}" id="blog-comment-{{ comment.ID }}">
+    <h5 class="message__author">
+        {{ comment.author.name }} says
+    </h5>
+    <div class="message__content">
+        {{ comment.comment_content|wpautop }}
+    </div>
 
-    <section class="comment-box">
-        <!-- child comments -->
+    <section class="section-comment__reply">
         {% if post.comments %}
-            <div class="comment__reply">
+            <div class="reply__content">
                 <h4> replies </h4>
                 <div class="comments">
                     {% for cmt in comment.children %}

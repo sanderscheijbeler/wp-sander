@@ -12,23 +12,7 @@
                         </div>
                     </section>
 
-                    {% if post.comment_status == "closed" %}
-                        <!-- no comments allowed -->
-                    {% else %}
-                    <section class="comment-box">
-                        <!-- comments -->
-                        <div class="comments">
-                            {% if post.comments %}
-                                <h3> comments </h3>
-                                {% for cmt in post.comments %}
-                                    {% include "comment.twig" with {comment:cmt} %}
-                                {% endfor %}
-                            {% endif %}
-                        </div>
-                        <!-- comment form -->
-                        {% include "comment-form.twig" %}
-                        {% endif %}
-                    </section>
+                    {% include "section-comment.twig" %}
                 </article>
             </div>
         </div>
