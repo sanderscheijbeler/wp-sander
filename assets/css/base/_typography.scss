@@ -10,6 +10,7 @@ h1,h2,h3,h4,h5,h6 {
     font-family: $header-font;
     font-weight: 400;
     color: $header-font-color;
+    margin: 0;
 }
 
 h1, .heading1 {
@@ -18,6 +19,7 @@ h1, .heading1 {
 
     a {
         color: $header-font-color;
+        text-decoration: none;
     }
 }
 
@@ -27,6 +29,7 @@ h2, .heading2 {
 
     a {
         color: $header-font-color;
+        text-decoration: none;
     }
 }
 
@@ -36,6 +39,7 @@ h3, .heading3 {
 
     a {
         color: $header-font-color;
+        text-decoration: none;
     }
 }
 
@@ -45,6 +49,7 @@ h4, .heading4 {
 
     a {
         color: $header-font-color;
+        text-decoration: none;
     }
 }
 
@@ -54,6 +59,7 @@ h5, .heading5 {
 
     a {
         color: $header-font-color;
+        text-decoration: none;
     }
 }
 
@@ -63,6 +69,7 @@ h6, .heading6 {
 
     a {
         color: $header-font-color;
+        text-decoration: none;
     }
 }
 
