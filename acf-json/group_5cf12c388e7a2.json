@@ -1,0 +1,39 @@
+{
+    "key": "group_5cf12c388e7a2",
+    "title": "List",
+    "fields": [
+        {
+            "key": "field_5cf12c3eafa31",
+            "label": "List",
+            "name": "cf_list_filter",
+            "type": "post_type_selector",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "select_type": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-list.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1559310064
+}

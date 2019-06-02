@@ -1,0 +1,17 @@
+<div class="col-4 grid-item filter-{{ post.terms | map(i => "#{i.slug}") | join(' filter-') | lower }}">
+    <article class="tease tease-{{ post.post_type }}" id="tease-{{ post.ID }}">
+        {% block content %}
+            <h2 class="heading2">
+                <a href="{{ post.link }}">{{ post.title }}</a>
+            </h2>
+            {% if post.get_thumbnail %}
+                <img src="{{ post.thumbnail.src }}" alt="Test"/>
+            {% endif %}
+            <p>
+                {{ post.preview }}
+            </p>
+        {% endblock %}
+    </article>
+</div>
+
+

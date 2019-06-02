@@ -1,0 +1,59 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <h1>
+                    list
+                </h1>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="filter">
+                    <div class="filter-button__wrapper">
+                        <ul class="filter-button-group">
+                            <li>
+                                <button class="btn btn--tab active" data-filter="*">All</button>
+                            </li>
+
+                            {% for filter in filters %}
+                                {% if filter.term_id != 1 %}
+                                    <li>
+                                        <button class="btn btn--tab"
+                                                data-filter=".filter-{{ filter.slug | lower }}">
+                                            {{ filter.name }}
+                                        </button>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="form-group searchbar col-md-4">
+            <div class="form-group has-feedback row">
+                <input type="text" class="form-control quicksearch" placeholder="Search"/>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="grid row" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
+    {% for item in items %}
+        {% include 'list-post.twig' with {'post': item} %}
+    {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

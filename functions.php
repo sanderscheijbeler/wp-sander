@@ -46,8 +46,25 @@ class StarterSite extends Timber\Site
         add_filter('timber/twig', array($this, 'add_to_twig'));
         add_action('init', array($this, 'register_post_types'));
         add_action('init', array($this, 'register_taxonomies'));
-
         add_action('wp_footer', [$this, 'loadScripts']);
+
+        add_action('wp_ajax_more_all_posts', array($this, 'ajax_more_all_posts'));
+        add_action('wp_ajax_nopriv_more_all_posts', array($this, 'ajax_more_all_posts'));
+        add_action('wp_print_styles', array($this, 'wps_deregister_styles'));
+        add_action('wp_footer', array($this, 'my_deregister_scripts'));
+
+        remove_action('wp_head', 'print_emoji_detection_script', 7);
+        remove_action('wp_print_styles', 'print_emoji_styles');
+        remove_action('admin_print_scripts', 'print_emoji_detection_script');
+        remove_action('admin_print_styles', 'print_emoji_styles');
+
+        remove_action('wp_head', 'feed_links_extra', 3);
+        remove_action('wp_head', 'feed_links', 2);
+        remove_action('wp_head', 'rsd_link');
+
+        remove_action('wp_head', 'rest_output_link_wp_head');
+        remove_action('wp_head', 'wp_oembed_add_discovery_links');
+        remove_action('wp_head', 'wp_generator');
 
         parent::__construct();
     }
@@ -83,7 +100,6 @@ class StarterSite extends Timber\Site
 
         // disable the admin bar
         add_filter('show_admin_bar', '__return_false');
-
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support('automatic-feed-links');
@@ -136,8 +152,14 @@ class StarterSite extends Timber\Site
         add_theme_support('menus');
     }
 
-    function loadScripts() {
-        wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), '1.0.0', true );
+    function loadScripts()
+    {
+        wp_enqueue_script('vendor-js', get_template_directory_uri() . '/assets/js/vendor.js', array(), '1.0.0', true);
+        wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), '1.0.0', true);
+
+        // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
+        wp_localize_script('custom-js', 'ajax_object',
+            array('ajax_url' => admin_url('admin-ajax.php'), 'we_value' => 1234));
     }
 
     /** This Would return 'foo bar!'.
@@ -159,6 +181,21 @@ class StarterSite extends Timber\Site
         $twig->addExtension(new Twig_Extension_StringLoader());
         $twig->addFilter(new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
         return $twig;
+    }
+
+    /**
+     * Removes css that comes with gutenberg
+     */
+    function wps_deregister_styles()
+    {
+        wp_dequeue_style('wp-block-library');
+    }
+
+    /**
+     * Disable wp-embed script
+    */
+    function my_deregister_scripts(){
+        wp_deregister_script( 'wp-embed' );
     }
 
 }
