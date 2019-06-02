@@ -5,11 +5,14 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <h3>
+                    List all categories that are within the blogs, with links to the archive page
+                </h3>
                 <ul>
-                    {% for c in cat %}
+                    {% for category in page_categories %}
                         <li>
-                            <a href="{{ c.path }}">
-                                {{ c.name }}
+                            <a href="{{ category.path }}">
+                                {{ category.name }}
                             </a>
                         </li>
                     {% endfor %}
@@ -17,11 +20,29 @@
             </div>
         </div>
     </div>
+    <div class="loadmorecontainer">
+        {% for post in posts %}
+
+            {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+
+        {% endfor %}
+
+        {% if posts.pagination.next %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <a id="load-older-posts" href="{{ posts.pagination.next.link }}">
+                        Load more posts
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
 
 
-    {% for post in posts %}
-        {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-    {% endfor %}
 
-    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+    {#{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}#}
+
+
 {% endblock %}

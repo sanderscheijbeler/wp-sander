@@ -6,12 +6,12 @@
                     <h2 class="heading2">
                         <a href="{{ post.link }}">{{ post.title }}</a>
                     </h2>
-                    <p>
-                        {{ post.preview }}
-                    </p>
                     {% if post.get_thumbnail %}
                         <img src="{{ post.thumbnail.src }}"/>
                     {% endif %}
+                    <p>
+                        {{ post.preview }}
+                    </p>
                 {% endblock %}
             </article>
         </div>

@@ -46,6 +46,7 @@
                     </button>
                 </li>
             {% endif %}
+
             {% if pagination.pages|last and pagination.pages|last.current != true %}
                 <li class="last btn">
                     <a href="{{ pagination.pages|last.link }}">Last</a>
