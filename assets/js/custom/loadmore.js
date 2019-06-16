@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     $('.loadmorecontainer').on('click', '#load-older-posts', function(e) {
+        debugger;
         e.preventDefault();
         var next_page = $(this).attr('href');
         $(this).remove();

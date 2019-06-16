@@ -1,0 +1,166 @@
+.blog {
+    &__large {
+        margin: 22px 0 48px 0;
+
+        .blog {
+            &__image {
+                padding-top: 350px;
+                background-color: #eeeeee;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            &__content {
+                padding: 0 8%;
+            }
+
+            &__header {
+                margin: 22px 0 0 0;
+            }
+
+            &__title {
+                a {
+                    color: #000;
+                }
+            }
+
+            &__info {
+                margin: 0 0 8px 0;
+
+                ul, li {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+
+                    li {
+                        margin-right: 16px;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        p {
+                            margin: 0;
+                            color: rgba(#000000, .5);
+                            font-size: .9em;
+                        }
+                    }
+                }
+            }
+
+            &__excerpt {
+                p {
+                    margin: 0;
+                }
+
+                a {
+                    display: block;
+                    color: #000;
+                    margin: 12px 0 0 0;
+
+                    &:visited {
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+
+    &__small {
+        display: flex;
+        flex-direction: row;
+
+        margin-bottom: 22px;
+
+        .blog {
+            &__image {
+                padding-top: 100px;
+                background-color: #eeeeee;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                flex: 0 0 30%;
+            }
+
+            &__content {
+                padding: 0 1%;
+                flex: 0 0 70%;
+            }
+
+            &__header {
+                margin: 11px 0 0 0;
+            }
+
+            &__title {
+                a {
+                    color: #000;
+                }
+            }
+
+            &__info {
+                margin: 0 0 8px 0;
+
+                ul, li {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+
+                    li {
+                        margin-right: 16px;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        p {
+                            margin: 0;
+                            color: rgba(#000000, .5);
+                            font-size: .9em;
+                        }
+                    }
+                }
+            }
+
+            &__excerpt {
+                p {
+                    margin: 0;
+                }
+
+                a {
+                    display: block;
+                    color: #000;
+                    margin: 12px 0 0 0;
+
+                    &:visited {
+                        color: #000;
+                    }
+                }
+            }
+        }
+
+        &--vert {
+            flex-direction: column;
+
+            .blog {
+                &__image {
+                    padding-top: 200px;
+                }
+            }
+        }
+    }
+}
