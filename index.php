@@ -18,9 +18,22 @@ $context['posts'] = new Timber\PostQuery();
 
 $context['page_categories'] = Timber::get_terms('categories');
 
+$args = array(
+    // Get post type project
+    'post_type' => 'post',
+    // Get all posts
+    'posts_per_page' => -1,
+    // Order by post date
+    'orderby' => array(
+        'date' => 'DESC'
+    ),
+);
+
+$posts = Timber\Timber::get_posts($args);
+$context['items'] = $posts;
 
 $templates = array( 'index.twig' );
 if ( is_home() ) {
-	array_unshift( $templates, 'front-page.twig', 'home.twig' );
+	array_unshift( $templates, 'home-loadmore.twig', 'home.twig' );
 }
 Timber::render( $templates, $context );

@@ -66,6 +66,13 @@ class StarterSite extends Timber\Site
         remove_action('wp_head', 'wp_oembed_add_discovery_links');
         remove_action('wp_head', 'wp_generator');
 
+        // disable for posts
+        add_filter('use_block_editor_for_post', '__return_false', 10);
+
+// disable for post types
+        add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
+
         parent::__construct();
     }
 
@@ -137,17 +144,17 @@ class StarterSite extends Timber\Site
          *
          * See: https://codex.wordpress.org/Post_Formats
          */
-        add_theme_support(
-            'post-formats', array(
-                'aside',
-                'image',
-                'video',
-                'quote',
-                'link',
-                'gallery',
-                'audio',
-            )
-        );
+//        add_theme_support(
+//            'post-formats', array(
+//                'aside',
+//                'image',
+//                'video',
+//                'quote',
+//                'link',
+//                'gallery',
+//                'audio',
+//            )
+//        );
 
         add_theme_support('menus');
     }

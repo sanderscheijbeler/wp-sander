@@ -1,0 +1,53 @@
+<article class="blog__large">
+    <div class="blog__image">
+        {#image#}
+    </div>
+    <div class="blog__content">
+        <div class="blog__header">
+            <h3 class="header3 blog__title">
+                <a href="{{ post.link }}">
+                    {{ post.title }}
+                </a>
+            </h3>
+        </div>
+        <div class="blog__info">
+            <ul>
+                <li>
+                    <p>
+                        <strong>In:</strong> {{ post.categories|map(c => c.name)|join(', ') }}
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>Tags:</strong> {{ post.tags|map(t => t.name)|join(', ') }}
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>Op:</strong> {{ post.date }}
+                    </p>
+                </li>
+
+                {% if post.comments %}
+                    <li>
+                        <p>
+                            {% if post.comments|length == 1 %}
+                                <strong>{{ post.comments|length }}</strong> reactie
+                            {% elseif post.comments|length > 1 %}
+                                <strong>{{ post.comments|length }}</strong> reacties
+                            {% else %}
+                                <i>Nog geen reacties</i>
+                            {% endif %}
+                        </p>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="blog__excerpt">
+            <p>
+                {{ post.preview.force.length(50).read_more('Lees meer') }}
+            </p>
+        </div>
+    </div>
+</article>
