@@ -1,7 +1,7 @@
 <article class="blog__small blog__small{{ blogType }}">
-    <div class="blog__image">
+    <a href="{{ post.link }}" class="blog__image" style="background-image: url('{{ post.thumbnail.src }}')">
         {#image#}
-    </div>
+    </a>
     <div class="blog__content">
         <div class="blog__header">
             <h3 class="header3 blog__title">
@@ -12,16 +12,23 @@
         </div>
         <div class="blog__info">
             <ul>
-                <li>
-                    <p>
-                        <strong>In:</strong> {{ post.categories|map(c => c.name)|join(', ') }}
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <strong>Tags:</strong> {{ post.tags|map(t => t.name)|join(', ') }}
-                    </p>
-                </li>
+                {% if post.categories %}
+                    <li>
+                        <p>
+                            <strong>In:</strong>
+                            {% for cat in post.categories %}
+                                <a href="{{ cat.path }}" target="_self"> {{ cat.name }} </a>
+                            {% endfor %}
+                        </p>
+                    </li>
+                {% endif %}
+                {% if post.tags %}
+                    <li>
+                        <p>
+                            <strong>Tags:</strong> {{ post.tags|map(t => t.name)|join(', ') }}
+                        </p>
+                    </li>
+                {% endif %}
                 <li>
                     <p>
                         <strong>Op:</strong> {{ post.date }}
@@ -31,13 +38,15 @@
                 {% if post.comments %}
                     <li>
                         <p>
-                            {% if post.comments|length == 1 %}
+                            <a href="{{ post.link }}#comments">
+                                {% if post.comments|length == 1 %}
                                 <strong>{{ post.comments|length }}</strong> reactie
-                            {% elseif post.comments|length > 1 %}
+                                {% elseif post.comments|length > 1 %}
                                 <strong>{{ post.comments|length }}</strong> reacties
-                            {% else %}
-                                <i>Nog geen reacties</i>
-                            {% endif %}
+                                {% else %}
+                                <a href="{{ post.link }}#comments"><i>Nog geen reacties</i>
+                                    {% endif %}
+                                </a>
                         </p>
                     </li>
                 {% endif %}
@@ -46,7 +55,7 @@
 
         <div class="blog__excerpt">
             <p>
-                {{ post.preview.force.length(50).read_more('Lees meer') }}
+                {{ post.preview.force.length(25).read_more('Lees meer') }}
             </p>
         </div>
     </div>

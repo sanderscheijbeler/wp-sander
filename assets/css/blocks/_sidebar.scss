@@ -1,0 +1,47 @@
+.sidebar {
+    padding: 22px 0 0 0;
+    &__profile {
+        margin-bottom: 32px;
+
+        .profile {
+            &__title {
+                color: rgba(#000,.5);
+            }
+            &__img {
+                padding-top: 150px;
+                background-color: #eee;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                border-radius: 5px;
+            }
+            &__content {
+                padding: 0 4%;
+
+                p {
+                    color: rgba(#000,.5);
+                }
+            }
+            &__button {
+                color: rgba(#000,.5);
+                text-decoration: none;
+                padding: 6px 18px;
+                border: 1px solid rgba($read_more_color,.5);
+                border-radius: 20px;
+                transition: all 220ms ease-in;
+
+                &:hover {
+                    color: rgba($read_more_color, 1);
+                    border: 1px solid rgba($read_more_color,1);
+                }
+            }
+        }
+    }
+
+    &__moreinfo {
+        p {
+            padding: 0 4%;
+            color: rgba(#000,.5);
+        }
+    }
+}

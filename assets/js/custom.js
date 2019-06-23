@@ -5,7 +5,7 @@ $(document).ready(function () {
   var grid = $('.grid');
   var qsRegex; // use value of search field to filter
 
-  var $quicksearch = $('.quicksearch').keyup(debounce(function () {
+  var $quicksearch = $('.QuickSearch').keyup(debounce(function () {
     qsRegex = new RegExp($quicksearch.val(), 'gi');
     grid.isotope({
       filter: function filter() {
@@ -54,7 +54,6 @@ function debounce(fn, time) {
 
 $(document).ready(function () {
   $('.loadmorecontainer').on('click', '#load-older-posts', function (e) {
-    debugger;
     e.preventDefault();
     var next_page = $(this).attr('href');
     $(this).remove();
