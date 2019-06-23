@@ -5,7 +5,7 @@ $(document).ready(() => {
     let qsRegex
 
     // use value of search field to filter
-    var $quicksearch = $('.quicksearch').keyup(
+    var $quicksearch = $('.QuickSearch').keyup(
         debounce(() => {
                 qsRegex = new RegExp($quicksearch.val(), 'gi');
 

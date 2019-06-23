@@ -3,25 +3,32 @@
 {% block content %}
     <div class="container">
         <div class="row justify-content-center">
-            {% set itemnum = 1 %}
-            {% for post in posts %}
-                {% if itemnum == 1 %}
-                    <div class="col-12">
-                        {% include ['blog-post-large.twig'] %}
-                    </div>
-                {% elseif itemnum > 1 and itemnum <= 3 %}
-                    <div class="col-12">
-                        {% include ['blog-post-small.twig'] %}
-                    </div>
-                {% else %}
-                    <div class="col-4">
-                        {% include ['blog-post-small.twig'] with {
-                            'blogType' : '--vert'
-                        } %}
-                    </div>
-                {% endif %}
-                {% set itemnum = itemnum + 1 %}
-            {% endfor %}
+            <div class="col-sm-9">
+                <div class="row">
+                    {% set itemnum = 1 %}
+                    {% for post in posts %}
+                        {% if itemnum == 1 %}
+                            <div class="col-12">
+                                {% include ['blog-post-large.twig'] %}
+                            </div>
+                        {% elseif itemnum > 1 and itemnum <= 3 %}
+                            <div class="col-12">
+                                {% include ['blog-post-small.twig'] %}
+                            </div>
+                        {% else %}
+                            <div class="col-4">
+                                {% include ['blog-post-small.twig'] with {
+                                    'blogType' : '--vert'
+                                } %}
+                            </div>
+                        {% endif %}
+                        {% set itemnum = itemnum + 1 %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-sm-3">
+                {% include 'sidebar.twig' %}
+            </div>
         </div>
     </div>
     <div class="container">

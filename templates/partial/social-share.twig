@@ -1,0 +1,69 @@
+<div class="socialshare">
+    <!-- Email -->
+    <ul>
+        <li>
+            <a class="socialshare__icon mail" href="mailto:?subject=&body=https://www.vilans.org"
+               title="Stuur door via email"
+               onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&amp;body=' +  encodeURIComponent(document.URL)); return false;">
+                              <span>
+                                  {# svg #}
+                              </span>
+            </a>
+        </li>
+        <li>
+            <a class="socialshare__icon facebook"
+               href="https://www.facebook.com/sharer/sharer.php?u=https://www.vilans.org&t="
+               title="Deel dit via Facebook"
+               onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&amp;t=' + encodeURIComponent(document.URL)); return false;"
+               target="_blank">
+                                  <span>
+                                      {# svg #}
+                                  </span>
+            </a>
+        </li>
+        <li>
+            <a class="socialshare__icon linkedin"
+               href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.vilans.org&title=&summary=&source=https://www.vilans.org"
+               title="Deel dit via Linkedin"
+               onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=' + encodeURIComponent(document.URL) + '&amp;title=' +  encodeURIComponent(document.title)); return false;"
+               target="_blank">
+                                  <span>
+                                      {# svg #}
+                                  </span>
+            </a>
+        </li>
+        <li>
+            <a class="socialshare__icon twitter"
+               href="https://twitter.com/intent/tweet?source=https://www.vilans.org&text=:https://www.vilans.org&via=vilans"
+               title="Deel dit via Twitter"
+               onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"
+               target="_blank">
+                                  <span>
+                                      {# svg #}
+                                  </span>
+            </a>
+        </li>
+        <li>
+            <a class="socialshare__icon pinterest"
+               href="https://pinterest.com/pin/create/button/?url=https://www.vilans.org&description="
+               title="Deel dit via Pintrest"
+               onclick="window.open('https://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&amp;description=' + encodeURIComponent(document.title)); return false;"
+               target="_blank">
+                                  <span>
+                                      {# svg #}
+                                  </span>
+            </a>
+        </li>
+        <li>
+            <a class="socialshare__icon googleplus"
+               href="https://plus.google.com/share?url=https://www.vilans.org"
+               title="Deel dit via GooglePlus"
+               onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"
+               target="_blank">
+                                  <span>
+                                      {# svg #}
+                                  </span>
+            </a>
+        </li>
+    </ul>
+</div>

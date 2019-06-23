@@ -1,16 +1,65 @@
-<div class="col-4 grid-item filter-{{ post.terms | map(i => "#{i.slug}") | join(' filter-') | lower }}">
-    <article class="tease tease-{{ post.post_type }}" id="tease-{{ post.ID }}">
-        {% block content %}
-            <h2 class="heading2">
-                <a href="{{ post.link }}">{{ post.title }}</a>
-            </h2>
-            {% if post.get_thumbnail %}
-                <img src="{{ post.thumbnail.src }}" alt="Test"/>
-            {% endif %}
-            <p>
-                {{ post.preview }}
-            </p>
-        {% endblock %}
+<div class="col-sm-4 grid-item filter-{{ post.terms | map(i => "#{i.slug}") | join(' filter-') | lower }}">
+    <article class="blog__small blog__small--vert blog__{{ post.post_type }}" id="blog__{{ post.ID }}">
+            <div class="blog__image" style="background-image: url('{{ post.thumbnail.src }}')">
+                {#image#}
+            </div>
+            <div class="blog__content">
+                <div class="blog__header">
+                    <h3 class="header3 blog__title">
+                        <a href="{{ post.link }}">
+                            {{ post.title }}
+                        </a>
+                    </h3>
+                </div>
+                <div class="blog__info">
+                    <ul>
+                        {% if post.categories %}
+                            <li>
+                                <p>
+                                    <strong>In:</strong>
+                                    {% for cat in post.categories %}
+                                        <a href="{{ cat.path }}" target="_self"> {{ cat.name }} </a>
+                                    {% endfor %}
+                                </p>
+                            </li>
+                        {% endif %}
+                        {% if post.tags %}
+                            <li>
+                                <p>
+                                    <strong>Tags:</strong> {{ post.tags|map(t => t.name)|join(', ') }}
+                                </p>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <p>
+                                <strong>Op:</strong> {{ post.date }}
+                            </p>
+                        </li>
+
+                        {% if post.comments %}
+                            <li>
+                                <p>
+                                    <a href="{{ post.link }}#comments">
+                                        {% if post.comments|length == 1 %}
+                                        <strong>{{ post.comments|length }}</strong> reactie
+                                        {% elseif post.comments|length > 1 %}
+                                        <strong>{{ post.comments|length }}</strong> reacties
+                                        {% else %}
+                                        <a href="{{ post.link }}#comments"><i>Nog geen reacties</i>
+                                            {% endif %}
+                                        </a>
+                                </p>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <div class="blog__excerpt">
+                    <p>
+                        {{ post.preview.force.length(25).read_more('Lees meer') }}
+                    </p>
+                </div>
+            </div>
     </article>
 </div>
 

@@ -18,14 +18,14 @@ $h1-lg : 3.53rem;
 // Custom site colors
 
 $black : #000010;
-$white : #fffff1;
+$white : #ffffff;
 
 $red : orange;
 
 
 //Setting the working variables
 $header-wrapper-height : $header-height;
-$header-wrapper-bg : #ffffff;
+$header-wrapper-bg : $white;
 $current-menu-item-bg : #ffffff;
 $menu-item-line-height : $header-height;
 $content-wrapper-height : $header-height;
@@ -33,4 +33,5 @@ $content-wrapper-height : $header-height;
 $body-font-color : #000000;
 $header-font-color : #000000;
 
+$blog_cat_hover_color : $red;
 $read_more_color : $red;
