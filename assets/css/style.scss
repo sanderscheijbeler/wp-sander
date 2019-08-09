@@ -5,7 +5,7 @@
 // ===========================================
 
 @import "base/normalize";
-@import "base/bootstrap-grid";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 @import "base/mixins";
 @import "base/slick";
 @import "base/slick-theme";
@@ -30,6 +30,9 @@
 //
 // ===========================================
 
+@import "blocks/navigation";
+@import "blocks/archive";
+@import "blocks/single";
 @import "blocks/pagination";
 @import "blocks/blog";
 @import "blocks/sidebar";

@@ -62,7 +62,8 @@ $(document).ready(function () {
 });
 "use strict";
 
-// element variables
+var width = window.innerWidth > 0 ? window.innerWidth : screen.width; // element variables
+
 var els = {
   header: document.querySelector('header.header__wrapper') // init varibles
 
@@ -70,7 +71,8 @@ var els = {
 var didScroll,
     lastScrollTop = 0,
     delta = 5,
-    navbarHeight = els.header.offsetHeight; // get current scroll
+    navbarHeight = els.header.offsetHeight,
+    maxWidth = 768; // get current scroll
 
 function getCurrentScroll() {
   return window.pageYOffset || document.documentElement.scrollTop;
@@ -79,6 +81,8 @@ function getCurrentScroll() {
 
 function menuOnScroll() {
   var currentScroll = getCurrentScroll();
+  var width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+  if (width <= maxWidth) return;
   if (Math.abs(lastScrollTop - currentScroll) <= delta) return;
 
   if (currentScroll > lastScrollTop && currentScroll > navbarHeight) {
@@ -115,3 +119,9 @@ setInterval(function () {
     didScroll = false;
   }
 }, 250);
+"use strict";
+
+var menuButton = document.querySelector('.nav__button');
+menuButton.addEventListener('click', function (e) {
+  document.body.classList.toggle('menu__open');
+});

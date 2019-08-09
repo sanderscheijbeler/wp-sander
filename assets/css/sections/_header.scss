@@ -12,6 +12,10 @@
         height: $header-wrapper-height;
         transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 
+        @include media-breakpoint-down(sm) {
+            height: $header-wrapper-height-sm;
+        }
+
         &--hidden {
             opacity: 0;
             transform: translate3d(0, -100%, 0);
@@ -28,101 +32,17 @@
 
     &__logo {
         margin: 0;
+        font-size: 1.7rem;
+        z-index: 9999;
+
+
+        @include media-breakpoint-down(sm) {
+            font-size: 1.1rem;
+        }
     }
 
     &__link {
         text-decoration: none;
-    }
-}
-
-.nav {
-    &__main {
-        height: 100%;
-
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: row;
-            height: 100%;
-
-            li {
-                padding: 0;
-                margin: 0;
-
-                a {
-                    text-decoration: none;
-                }
-
-                ul {
-                    display: none;
-                    position: absolute;
-                    top: 100%;
-                    left: 6px;
-                    flex-direction: column;
-
-                    .menu-item {
-                        display: flex;
-
-                        a {
-                            padding: 0;
-                            line-height: 1.5em;
-                            font-weight: 400;
-                        }
-                    }
-
-                    .current-menu-item {
-                        background-color: $current-menu-item-bg;
-                        a {
-                            font-weight: 800;
-                        }
-                    }
-                }
-            }
-
-            .menu-item {
-                display: flex;
-
-                a {
-                    padding: 0 6px;
-                    line-height: $menu-item-line-height;
-                }
-
-                &:first-child {
-                    a {
-                        padding-left: 0;
-                    }
-                }
-
-                &:last-child {
-                    a {
-                        padding-right: 0;
-                    }
-                }
-            }
-
-            .menu-item-has-children {
-                position: relative;
-
-                &:hover {
-                    ul {
-                        display: block;
-                    }
-                }
-            }
-
-            .current-menu-item {
-                a {
-                    font-weight: 800;
-                }
-            }
-
-            .current_page_ancestor {
-                a {
-                    font-weight: 800;
-                }
-            }
-        }
+        color: #000;
     }
 }

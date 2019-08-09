@@ -1,26 +1,24 @@
 <div class="sidebar">
     <div class="sidebar__profile">
         <h4 class="heading4 profile__title">
-            Over ons
+            {{ options.cf_about_title }}
         </h4>
-        <div class="profile__img">
+        <div class="profile__img" style="background-image: url('{{ options.cf_about_image["url"]|towebp }}')">
 
         </div>
         <div class="profile__content">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi cum debitis dicta, dignissimos fugiat iure maxime, nesciunt, nisi nulla .
-            </p>
+            {{ options.cf_about_text }}
 
-            <a href="#" class="profile__button">
-                Over ons
+            <a href="{{ options.cf_about_button['url'] }}" target="{{ options.cf_about_button['target'] }}" class="profile__button">
+                {{ options.cf_about_button['title'] }}
             </a>
         </div>
     </div>
 
     <div class="sidebar__moreinfo">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corporis deleniti distinctio, doloribus dolorum earum in labore laudantium magni nobis omnis possimus, quidem quis totam, unde? Possimus quibusdam reprehenderit sed.
-        </p>
+        {% set sidebar_content = options.cf_about_more_info %}
+        {% for contentblock in sidebar_content %}
+            {{ contentblock.content }}
+        {% endfor %}
     </div>
-
 </div>

@@ -1,0 +1,178 @@
+
+.nav {
+    &__main {
+        display: block;
+        flex: 1 1 auto;
+        height: 100%;
+
+        @include media-breakpoint-down(sm) {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(#fff, .98);
+
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(-105%);
+            transition: transform 240ms ease-in-out, opacity 240ms ease-in-out 120ms;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            height: 100%;
+
+            @include media-breakpoint-down(sm) {
+                display: block;
+                margin: 0 0 0 20px;
+            }
+
+            li {
+                padding: 5px 10px;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                @include media-breakpoint-down(sm) {
+                    padding: 5px 15px;
+                }
+
+                a {
+                    font-size: 1rem;
+                    line-height: 1.1em;
+                    color: #000;
+
+                    @include media-breakpoint-down(sm) {
+                        font-size: 1.7rem;
+                        line-height: 1.1em;
+                    }
+                }
+
+                ul {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 6px;
+                    min-width: 200px;
+                    background-color: #ffffff;
+                    height: auto;
+                    padding: 10px;
+
+                    .menu-item {
+                        display: block;
+                        margin: 0;
+                        padding: 10px 0;
+
+                        @include media-breakpoint-down(sm) {
+                            margin: 0 0 0 20px;
+                        }
+
+                        a {
+                            padding: 10px 5px;
+                            line-height: 1.5em;
+                            font-weight: 400;
+                        }
+                    }
+
+                    .current-menu-item {
+                        //background-color: $current-menu-item-bg;
+
+                        a {
+                            //font-weight: 800;
+                        }
+                    }
+                }
+            }
+
+            .menu-item {
+                //display: flex;
+
+                a {
+                    //padding: 0 6px;
+                    //line-height: $menu-item-line-height;
+                }
+
+                &:first-child {
+                    a {
+                        //padding-left: 0;
+                    }
+                }
+
+                &:last-child {
+                    a {
+                        //padding-right: 0;
+                    }
+                }
+            }
+
+            .menu-item-has-children {
+                position: relative;
+
+                &:hover {
+                    ul {
+                        display: block;
+                    }
+                }
+            }
+
+            .current-menu-item {
+                > a {
+                    font-weight: 800;
+                }
+            }
+
+            .current_page_ancestor {
+                a {
+                    //font-weight: 800;
+                }
+            }
+        }
+    }
+
+    &__button {
+        display: none;
+
+        height: 40px;
+        width: 40px;
+        position: relative;
+        z-index: 9999;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include media-breakpoint-down(sm) {
+            display: block;
+        }
+
+        span {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: rgba(#000,.7);
+            top: 50%;
+            transition: all 240ms ease-in-out;
+
+            &:nth-child(1) {
+                transform: translateY(-10px);
+            }
+            &:nth-child(2) {
+                width: 80%;
+                right: 0;
+            }
+            &:nth-child(3) {
+                transform: translateY(10px);
+            }
+        }
+
+    }
+}

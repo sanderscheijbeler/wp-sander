@@ -1,15 +1,20 @@
 $header-height : 100px;
+$header-height-sm : 70px;
 
 // Font Settings
-$header-fallback-font: 'Domine', "Times New Roman", Times, serif;
+$main-font: 'Lora';
+
+$header-fallback-font: $main-font, "Times New Roman", Times, serif;
 $body-fallback-font : Arial, Helvetica, sans-serif;
 
 $header-font : $header-fallback-font;
-$body-font : $body-fallback-font;
+$body-font : $header-font;
 
 //Font size - line height settings
 $base-fontsize : 16px;
 $base-lineheight : 1.6em;
+$base-fontsize-sm : 14px;
+$base-lineheight-sm : 1.4em;
 $base-fontweight : 400;
 
 $h1-lg : 3.53rem;
@@ -22,9 +27,9 @@ $white : #ffffff;
 
 $red : orange;
 
-
 //Setting the working variables
 $header-wrapper-height : $header-height;
+$header-wrapper-height-sm : $header-height-sm;
 $header-wrapper-bg : $white;
 $current-menu-item-bg : #ffffff;
 $menu-item-line-height : $header-height;

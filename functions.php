@@ -69,9 +69,12 @@ class StarterSite extends Timber\Site
         // disable for posts
         add_filter('use_block_editor_for_post', '__return_false', 10);
 
-// disable for post types
+		// disable for post types
         add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
+		if (function_exists('acf_add_options_page')) {
+			acf_add_options_page();
+		}
 
         parent::__construct();
     }
@@ -99,6 +102,7 @@ class StarterSite extends Timber\Site
         $context['notes'] = 'These values are available everytime you call Timber::get_context();';
         $context['menu'] = new Timber\Menu();
         $context['site'] = $this;
+        $context['options'] = get_fields('options');
         return $context;
     }
 

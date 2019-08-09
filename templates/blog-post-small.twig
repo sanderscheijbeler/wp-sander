@@ -4,7 +4,7 @@
     </a>
     <div class="blog__content">
         <div class="blog__header">
-            <h3 class="header3 blog__title">
+            <h3 class="heading3 blog__title">
                 <a href="{{ post.link }}">
                     {{ post.title }}
                 </a>
@@ -54,8 +54,11 @@
         </div>
 
         <div class="blog__excerpt">
-            <p>
-                {{ post.preview.force.length(25).read_more('Lees meer') }}
+            <p>{% if blogType == '--vert' %}
+                    {{ post.preview.force.length(15).read_more('Lees meer') }}
+                {% else %}
+                    {{ post.preview.force.length(25).read_more('Lees meer') }}
+                {% endif %}
             </p>
         </div>
     </div>

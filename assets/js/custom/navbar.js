@@ -1,3 +1,5 @@
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
 // element variables
 var els = {
     header: document.querySelector('header.header__wrapper')
@@ -7,7 +9,8 @@ var els = {
 var didScroll,
     lastScrollTop = 0,
     delta = 5,
-    navbarHeight = els.header.offsetHeight;
+    navbarHeight = els.header.offsetHeight,
+    maxWidth = 768;
 
 // get current scroll
 function getCurrentScroll() {
@@ -17,6 +20,11 @@ function getCurrentScroll() {
 // what happens on scroll
 function menuOnScroll() {
     var currentScroll = getCurrentScroll();
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+    if (width <= maxWidth)
+        return;
+
 
     if (Math.abs(lastScrollTop - currentScroll) <= delta)
         return;
@@ -48,6 +56,7 @@ document.body.onmousemove = function(e) {
 window.onscroll = function() {
     didScroll = true;
 };
+
 setInterval(function() {
     if (didScroll) {
         menuOnScroll();

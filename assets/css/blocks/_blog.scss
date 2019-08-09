@@ -22,6 +22,10 @@
             }
 
             &__title {
+                @include media-breakpoint-down(md) {
+                    font-size: 1.5rem;
+                    line-height: 1.2em;
+                }
                 a {
                     color: #000;
                 }
@@ -40,6 +44,7 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: flex-start;
+                    flex-wrap: wrap;
 
                     li {
                         margin-right: 16px;
@@ -124,10 +129,15 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+
+                @include media-breakpoint-down(md) {
+                    justify-content: flex-start;
+                }
             }
 
             &__header {
                 margin: 11px 0 0 0;
+
             }
 
             &__title {
@@ -139,6 +149,10 @@
 
             &__info {
                 margin: 0 0 12px 0;
+
+                @include media-breakpoint-down(md) {
+                    margin: 6px 0 6px 0;
+                }
 
                 ul, li {
                     margin: 0;
@@ -163,6 +177,9 @@
                             margin: 0;
                             color: rgba(#000000, .5);
                             font-size: .9em;
+                            @include media-breakpoint-down(md) {
+                                line-height: 1.1em;
+                            }
 
                             a {
                                 color: rgba(#000000, .5);
@@ -179,9 +196,19 @@
             }
 
             &__excerpt {
+
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+
                 p {
                     margin: 0;
                     color: rgba(#000000, .5);
+
+                    @include media-breakpoint-down(md) {
+                        font-size: .8rem;
+                        line-height: 1.2em;
+                    }
                 }
 
                 a {
@@ -194,6 +221,10 @@
                     color: rgba(#000,.5);
                     transition: all 220ms ease-in;
                     border: 1px solid rgba($read_more_color,.5);
+
+                    @include media-breakpoint-down(md) {
+                        display: none;
+                    }
 
                     &:visited {
                         color: rgba(#000,.5);
@@ -212,21 +243,58 @@
             flex-direction: column;
             margin-top: 22px;
 
+            @include media-breakpoint-down(sm) {
+                flex-direction: row;
+            }
+
             .blog {
                 &__image {
                     padding-top: 78%;
+
+                    @include media-breakpoint-down(sm) {
+                        padding-top: 26%;
+                    }
                 }
                 &__title {
-                    font-size: 1.4rem;
                     min-height: 3.7rem;
                     padding: 0 2%;
+                    font-size: 1.4rem;
+                    line-height: 1.2em;
+
+                    @include media-breakpoint-down(md) {
+                        min-height: auto;
+                        margin-bottom: 6px;
+                        font-size: 1.1rem;
+                    }
+
+                    a {
+                        font-size: 1.4rem;
+                        line-height: 1em;
+
+                        @include media-breakpoint-down(md) {
+                            font-size: 1.1rem;
+                        }
+                    }
+
+
                 }
                 &__info {
                     padding: 0 2%;
 
+                    @include media-breakpoint-down(md) {
+                        margin-bottom: 6px;
+                    }
+
                     ul {
                         li {
                             margin-right: 6px;
+
+                            p {
+                                @include media-breakpoint-down(md) {
+                                    font-size: .8rem;
+                                    line-height: 1.3em;
+                                }
+                            }
                         }
                     }
                 }
