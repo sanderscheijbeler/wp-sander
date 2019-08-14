@@ -31,8 +31,10 @@
             height: 100%;
 
             @include media-breakpoint-down(sm) {
-                display: block;
-                margin: 0 0 0 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                //margin: 0 0 0 20px;
             }
 
             li {

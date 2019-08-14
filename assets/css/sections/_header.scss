@@ -43,6 +43,10 @@
 
     &__link {
         text-decoration: none;
-        color: #000;
+        color: $header-font-color;
+
+        &:hover {
+            color: $header-font-color-hover;
+        }
     }
 }

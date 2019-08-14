@@ -120,6 +120,11 @@
 
                 flex: 0 0 30%;
                 display: inline-block;
+
+                @include media-breakpoint-down(md) {
+                    padding-top: auto;
+                    height: 70px;
+                }
             }
 
             &__content {
@@ -138,12 +143,20 @@
             &__header {
                 margin: 11px 0 0 0;
 
+                @include media-breakpoint-down(md) {
+                    margin: 0;
+                }
+
             }
 
             &__title {
 
                 a {
                     color: #000;
+
+                    @include media-breakpoint-down(md) {
+                        word-break: break-all;
+                    }
                 }
             }
 
