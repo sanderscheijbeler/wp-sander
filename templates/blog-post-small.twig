@@ -1,5 +1,5 @@
 <article class="blog__small blog__small{{ blogType }}">
-    <a href="{{ post.link }}" class="blog__image" style="background-image: url('{{ post.thumbnail.src }}')">
+    <a href="{{ post.link }}" class="blog__image" style="background-image: url('{{ post.thumbnail.src('large') }}')">
         {#image#}
     </a>
     <div class="blog__content">
