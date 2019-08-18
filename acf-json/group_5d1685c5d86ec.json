@@ -38,6 +38,44 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_5d59413d04041",
+            "label": "Tags",
+            "name": "cf_set_tags",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable tags to the website",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d59414b04042",
+            "label": "Date",
+            "name": "cf_set_date",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable date to the website",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5d4d660dfaf09",
             "label": "Sidebar",
             "name": "",
@@ -188,5 +226,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565353936
+    "modified": 1566131159
 }

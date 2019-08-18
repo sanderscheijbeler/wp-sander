@@ -22,20 +22,21 @@
                         </p>
                     </li>
                 {% endif %}
-                {% if post.tags %}
+                {% if post.tags and options.cf_set_tags %}
                     <li>
                         <p>
                             <strong>Tags:</strong> {{ post.tags|map(t => t.name)|join(', ') }}
                         </p>
                     </li>
                 {% endif %}
+                {% if options.cf_set_date %}
                 <li>
                     <p>
                         <strong>Op:</strong> {{ post.date }}
                     </p>
                 </li>
-
-                {% if post.comments %}
+                {% endif %}
+                {% if post.comments and options.cf_set_reactions %}
                     <li>
                         <p>
                             <a href="{{ post.link }}#comments">

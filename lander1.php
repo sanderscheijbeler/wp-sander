@@ -5,13 +5,6 @@
  *
  */
 
-
-global $paged;
-if (!isset($paged) || !$paged){
-    $paged = 1;
-}
-
-
 $context = Timber::get_context();
 
 $context['page_categories'] = Timber::get_terms('categories');
@@ -21,8 +14,7 @@ $args = array(
     'posts_per_page' => -1,
     'orderby' => array(
         'date' => 'DESC'
-    ),
-    'paged' => $paged
+    )
 );
 $context['posts'] = new Timber\PostQuery($args);
 

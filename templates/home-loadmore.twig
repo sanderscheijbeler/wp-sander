@@ -11,17 +11,16 @@
                 {% endfor %}
             </div>
         </div>
-
-        {#{% if posts.pagination.next %}#}
+        {% if posts.pagination.next %}
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a id="load-older-posts" href="{{ posts.pagination.next.link }}">
+                        <a id="load-older-posts" class="loadmore__link" href="{{ posts.pagination.next.link }}">
                             Load more posts
                         </a>
                     </div>
                 </div>
             </div>
-        {#{% endif %}#}
+        {% endif %}
     </div>
 {% endblock %}

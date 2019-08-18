@@ -19,6 +19,16 @@ img {
     height: auto;
 }
 
+.loadmore__link {
+    color: rgba(#000000, .5);
+    transition: all 220ms ease-in;
+    text-decoration: none;
+
+    &:hover {
+        color: rgba($blog_cat_hover_color, .5);
+    }
+}
+
 
 .body {
     &__content {

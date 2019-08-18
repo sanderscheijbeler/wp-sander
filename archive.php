@@ -14,6 +14,12 @@
  * @since   Timber 0.2
  */
 
+
+global $paged;
+if (!isset($paged) || !$paged){
+    $paged = 1;
+}
+
 $templates = array( 'archive.twig', 'index.twig' );
 
 $context = Timber::get_context();
