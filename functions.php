@@ -76,6 +76,10 @@ class StarterSite extends Timber\Site
 			acf_add_options_page();
 		}
 
+        // Cleanup Dashboard
+        add_action('wp_dashboard_setup', array($this, 'wpc_remove_dashboard_widgets'), 9999);
+
+
         parent::__construct();
     }
 
@@ -207,6 +211,18 @@ class StarterSite extends Timber\Site
     */
     function my_deregister_scripts(){
         wp_deregister_script( 'wp-embed' );
+    }
+
+    /**
+     * Removes all dashboard widgets.
+     *
+     * @since 1.0.0
+     */
+    function wpc_remove_dashboard_widgets()
+    {
+        // Get global obj.
+        global $wp_meta_boxes;
+        unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
     }
 
 }

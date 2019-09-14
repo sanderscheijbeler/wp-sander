@@ -13,10 +13,10 @@
  * @since   Timber 0.1
  */
 
-$context = Timber::get_context();
+$context = Timber\Timber::get_context();
 $context['posts'] = new Timber\PostQuery();
 
-$context['page_categories'] = Timber::get_terms('categories');
+$context['page_categories'] = Timber\Timber::get_terms('categories');
 
 $args = array(
     // Get post type project
@@ -36,4 +36,4 @@ $templates = array( 'index.twig' );
 if ( is_home() ) {
 	array_unshift( $templates, 'home-loadmore.twig', 'home.twig' );
 }
-Timber::render( $templates, $context );
+Timber\Timber::render( $templates, $context );
