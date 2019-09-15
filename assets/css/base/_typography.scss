@@ -158,15 +158,17 @@ p {
 
     a {
         display: inline;
-        color: $body-font-color;
+        color: $accent-color;
+        text-decoration: underline;
+
         &:visited,
         &:active,
         &:focus {
-            color: $body-font-color;
+            color: $accent-color;
         }
 
         &:hover {
-            color: $body-font-color;
+            color: $accent-color;
             text-decoration: underline;
         }
     }
@@ -216,36 +218,41 @@ p {
 
     blockquote {
         display: inline-block;
-        position: relative;
-        font-size: 24px;
-        line-height: 36px;
-        margin-top: 30px;
-        margin-bottom: 30px;
 
+        margin: 30px 0 30px 0;
+        padding: 45px 120px;
+
+        background-color: #eeeeee;
+        font-family: $header-font;
+        font-size: $h2;
+        line-height: 32px;
         color: $body-font-color;
-        border-left: 4px solid $black;
-        padding-left: 20px;
 
         p {
+            font-size: inherit;
+            line-height: inherit;
+            position: relative;
+
             &:before,
             &:after {
                 position: absolute;
                 display: block;
-                font-family: $body-font;
+                font-family: $header-font;
                 font-weight: 400;
                 font-size: 60px;
+                color: $accent-color;
             }
 
             &:before {
-                top: -18px;
-                left: 0;
+                top: 0;
+                left: -60px;
                 content: "“";
             }
 
             &:after {
                 bottom: -50px;
                 right: 0;
-                content: "”";
+                content: none;
             }
         }
     }
@@ -260,9 +267,19 @@ p {
         margin-bottom: 27px;
         margin-left: 30px;
 
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 15px;
+            margin-left: 15px;
+        }
+
         li {
             margin-bottom: 5px;
             padding-left: 12px;
+
+            @include media-breakpoint-down(sm) {
+                margin-bottom: 5px;
+                padding-left: 12px;
+            }
         }
     }
 
@@ -312,5 +329,12 @@ p {
                 }
             }
         }
+    }
+
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1px solid #d9d9d9;
     }
 }
