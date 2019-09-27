@@ -2,28 +2,45 @@ $header-height : 100px;
 $header-height-sm : 70px;
 
 // Font Settings
-$main-font: 'Lora';
+$main-font: 'lato';
+$second-font: 'Montserrat';
+$third-font: 'Playfair Display';
 
-$header-fallback-font: $main-font, "Times New Roman", Times, serif;
+$header-fallback-font: "Times New Roman", Times, serif;
 $body-fallback-font : Arial, Helvetica, sans-serif;
 
-$header-font : $header-fallback-font;
-$body-font : $header-font;
+$header-font : $third-font, $body-fallback-font;
+$body-font :$main-font, $body-fallback-font;
+$accent-font : $second-font, $body-font;
 
 //Font size - line height settings
-$base-fontsize : 16px;
+$base-fontsize : 15px;
 $base-lineheight : 1.6em;
-$base-fontsize-sm : 14px;
-$base-lineheight-sm : 1.4em;
+$base-fontsize-sm : 15px;
+$base-lineheight-sm : 1.6em;
 $base-fontweight : 400;
 
-$h1-lg : 3.53rem;
+$h1     : 26px;
+$h1-sm  : 26px;
+$h2     : 25px;
+$h2-sm  : 25px;
+$h3     : 20px;
+$h3-sm  : 20px;
+$h4     : 16px;
+$h4-sm  : 16px;
+$h5     : 10px;
+$h5-sm  : 10px;
+$h6     : 12px;
+$h6-sm  : 12px;
 
 
 // Custom site colors
 
-$black : #000010;
+$black : #000000;
 $white : #ffffff;
+$mos-green  : #9BA78A;
+$light-gray : #F7F7F7;
+$dark-gray : #3C3D41;
 
 $red : orange;
 
@@ -35,9 +52,13 @@ $current-menu-item-bg : #ffffff;
 $menu-item-line-height : $header-height;
 $content-wrapper-height : $header-height;
 
-$body-font-color : #000000;
-$header-font-color : #000000;
+$body-font-color : $black;
+$body-font-color-on-dark : $white;
+$header-font-color : $black;
+$header-font-color-on-dark : $white;
 $header-font-color-hover : #000000;
+
+$accent-color : $mos-green;
 
 $blog_cat_hover_color : $red;
 $read_more_color : $red;
