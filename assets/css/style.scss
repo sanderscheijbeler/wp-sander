@@ -1,11 +1,18 @@
+/*
+Theme Name: Base theme
+Author: Sander Scheijbeler
+Author URI: http://www.sanderscheijbeler.nl
+Version: 1.0
+Description: This wordpress theme is custom made for ...
+*/
+
 // ===========================================
 //
 // Base files
 //
 // ===========================================
 
-@import "base/normalize";
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "bootstrap/bootstrap";
 @import "base/mixins";
 @import "base/slick";
 @import "base/slick-theme";
@@ -23,6 +30,7 @@
 @import "sections/header";
 @import "sections/content";
 @import "sections/footer";
+@import "sections/layout";
 
 // ===========================================
 //
@@ -35,4 +43,16 @@
 @import "blocks/single";
 @import "blocks/pagination";
 @import "blocks/blog";
+@import "blocks/blog-post";
 @import "blocks/sidebar";
+@import "blocks/section-title-image";
+@import "blocks/section-blogs";
+
+
+// ===========================================
+//
+// Components
+//
+// ===========================================
+
+@import "components/all-components";

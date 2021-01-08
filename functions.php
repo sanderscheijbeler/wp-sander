@@ -78,7 +78,7 @@ class StarterSite extends Timber\Site
 
         // Cleanup Dashboard
         add_action('wp_dashboard_setup', array($this, 'wpc_remove_dashboard_widgets'), 9999);
-
+        add_filter('admin_footer_text', array($this, 'remove_footer_admin'));
 
         parent::__construct();
     }
@@ -165,6 +165,8 @@ class StarterSite extends Timber\Site
 //        );
 
         add_theme_support('menus');
+
+
     }
 
     function loadScripts()
@@ -225,6 +227,13 @@ class StarterSite extends Timber\Site
         unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
     }
 
+    /**
+     * Change the footer in admin dashboard
+     *
+     */
+    function remove_footer_admin () {
+        echo 'This wordpress theme is made by: <a href="http://www.sanderscheijbeler.nl" target="_blank">Sander Scheijbeler</a>';
+    }
 }
 
 new StarterSite();

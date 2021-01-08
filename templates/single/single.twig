@@ -1,0 +1,73 @@
+{% extends "base/base.twig" %}
+
+{% block content %}
+    <div class="page__single">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <article class="single__post single__post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+                        <div class="single__image" style="background-image: url('{{ post.thumbnail.src }}')">
+                            {#image#}
+                        </div>
+                        <section class="single__content">
+                            <h1 class="single__title heading2">
+                                {{ post.title }}
+                            </h1>
+                            <div class="single__info">
+                                <ul>
+                                    {% if post.categories %}
+                                        <li>
+                                            <p>
+                                                <strong>In:</strong>
+                                                {% for cat in post.categories %}
+                                                    <a href="{{ cat.path }}" target="_self"> {{ cat.name }} </a>
+                                                {% endfor %}
+                                            </p>
+                                        </li>
+                                    {% endif %}
+                                    {% if post.tags and options.cf_set_tags %}
+                                        <li>
+                                            <p>
+                                                <strong>Tags:</strong> {{ post.tags|map(t => t.name)|join(', ') }}
+                                            </p>
+                                        </li>
+                                    {% endif %}
+                                    {% if options.cf_set_date %}
+                                        <li>
+                                            <p>
+                                                <strong>Op:</strong> {{ post.date }}
+                                            </p>
+                                        </li>
+                                    {% endif %}
+                                    {% if post.comments and options.cf_set_reactions %}
+                                        <li>
+                                            <p>
+                                                <a href="{{ post.link }}#comments">
+                                                    {% if post.comments|length == 1 %}
+                                                    <strong>{{ post.comments|length }}</strong> reactie
+                                                    {% elseif post.comments|length > 1 %}
+                                                    <strong>{{ post.comments|length }}</strong> reacties
+                                                    {% else %}
+                                                    <a href="{{ post.link }}#comments"><i>Nog geen reacties</i>
+                                                        {% endif %}
+                                                    </a>
+                                            </p>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="single__body txt-body">
+                                {{ post.content }}
+                            </div>
+                        </section>
+
+                        {#                        {% include "section-comment.twig" %}#}
+                    </article>
+                </div>
+                <div class="col-sm-3">
+                    {% include 'partial/sidebar.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

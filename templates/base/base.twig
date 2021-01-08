@@ -1,0 +1,36 @@
+{% block html_head_container %}
+
+    {% include 'base/html-header.twig' %}
+    {% block head %}
+    {% endblock %}
+    </head>
+{% endblock %}
+
+<body class="{{ body_class }} {{ options.base_layout }}">
+
+{% if options.base_layout %}{% set jsForHeaderOnTop = options.base_layout == 'layout__align--top' ? ' HeaderScroll' %}{% endif %}
+<header class="header__wrapper{{ jsForHeaderOnTop }}">
+    {% block header %}
+        {% include 'base/header.twig' %}
+    {% endblock %}
+</header>
+
+<main class="content__wrapper">
+    {% block content %}
+        <h1>
+            Base content placeholder
+        </h1>
+    {% endblock %}
+</main>
+
+<footer class="footer__wrapper">
+    {% block footer %}
+
+        {% include 'base/footer.twig' %}
+
+    {% endblock %}
+</footer>
+{{ function('wp_footer') }}
+
+</body>
+</html>

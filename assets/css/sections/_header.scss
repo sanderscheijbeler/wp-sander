@@ -1,20 +1,44 @@
 .header {
+    $block: &;
     &__wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 5px;
-        background-color: rgba($header-wrapper-bg, 1);
-        z-index: 999;
-        border: 1px solid transparent;
-        border-width: 0 0 1px;
-        height: $header-wrapper-height;
         transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 
-        @include media-breakpoint-down(sm) {
-            height: $header-wrapper-height-sm;
+        @include atroot (".layout__align--top") {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 5px;
+            background-color: rgba($header-wrapper-bg, 1);
+            z-index: 999;
+            border: 1px solid transparent;
+            border-width: 0 0 1px;
+            height: $header-wrapper-height-top;
+
+            @include media-breakpoint-down(sm) {
+                height: $header-wrapper-height-top-sm;
+            }
         }
+
+        @include atroot (".layout__align--left") {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: $header-wrapper-width-side-sm;
+
+            @include media-breakpoint-down(sm) {
+                width: $header-wrapper-width-side;
+            }
+        }
+        //
+        //@include atroot (".layout__align--right") {
+        //}
+
+        //
+        //@include media-breakpoint-down(sm) {
+        //    height: $header-wrapper-height-sm;
+        //}
 
         &--hidden {
             opacity: 0;
@@ -24,10 +48,18 @@
 
     &__content {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
+
+        @include atroot (".layout__align--top") {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        @include atroot (".layout__align--left") {
+            flex-direction: column;
+            height: 100%;
+        }
     }
 
     &__logo {
@@ -38,6 +70,10 @@
 
         @include media-breakpoint-down(sm) {
             font-size: 1.1rem;
+        }
+
+        @include atroot (".layout__align--left") {
+            padding: 1rem;
         }
     }
 

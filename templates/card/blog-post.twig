@@ -1,0 +1,22 @@
+
+{% if itemnum != 1 %}
+{% set blogtype = '--small' %}
+{% else %}
+{% set blogtype = '' %}
+{% endif %}
+<article class="blog-post{{ blogtype }}">
+    <a href="{{ post.link }}" class="blog-post__image" style="background-image: url('{{ post.thumbnail.src('large') }}')">
+        <div class="blog-post__content">
+            <h3 class="heading3 blog-post__title">
+                {{ post.title }}
+            </h3>
+            {% if itemnum == 1 %}
+            <span class="blog-post__text">
+                Meer info {% include ['partial/icons.twig' ] with {
+                    'iconType' : 'arrowright'
+                } %}
+            </span>
+            {%  endif %}
+        </div>
+    </a>
+</article>

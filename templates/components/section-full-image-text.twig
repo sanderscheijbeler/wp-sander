@@ -1,0 +1,18 @@
+{% set image = Image(block.image) %}
+<section class="section-full-image-text {{ block.height }}">
+    <img class="section-full-image-text__image" src="{{ image.src }}" srcset="{{ image.srcset }}" alt="{{ image['alt'] }}">
+    <div class="section-full-image-text__content">
+        <div class="container">
+            <div class="row">
+                <div class="col-24 col-md-14">
+                    <h1 class="section-full-image-text__title">
+                        {{ block.title }}
+                    </h1>
+                    <p class="section-full-image-text__text">
+                        {{ block.text }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

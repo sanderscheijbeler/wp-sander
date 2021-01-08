@@ -23,6 +23,22 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5fd90c09fdf0b",
+                            "label": "Content",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
                             "key": "field_5cb98ff73d514",
                             "label": "Title",
                             "name": "title",
@@ -59,6 +75,91 @@
                             "toolbar": "full",
                             "media_upload": 1,
                             "delay": 0
+                        },
+                        {
+                            "key": "field_5fd9099fa7d73",
+                            "label": "Settings",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_5fd909b5a7d74",
+                            "label": "Title alignment",
+                            "name": "title_alignment",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-left": "Left",
+                                "text-center": "Center",
+                                "text-right": "Right"
+                            },
+                            "allow_null": 0,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5fd90a0ca8b98",
+                            "label": "Block margin",
+                            "name": "block_margin",
+                            "type": "button_group",
+                            "instructions": "Margin top and bottom",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "my-2": "Small",
+                                "my-4": "Medium",
+                                "my-8": "Large"
+                            },
+                            "allow_null": 0,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5fd90bafa8b99",
+                            "label": "Block padding",
+                            "name": "block_padding",
+                            "type": "button_group",
+                            "instructions": "Padding top and bottom",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "py-2": "Small",
+                                "py-4": "Medium",
+                                "py-8": "Large"
+                            },
+                            "allow_null": 0,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
                         }
                     ],
                     "min": "",
@@ -66,14 +167,49 @@
                 },
                 "layout_5cb9901f93f42": {
                     "key": "layout_5cb9901f93f42",
-                    "name": "section-title-image",
+                    "name": "section-full-image-text",
                     "label": "Title + image",
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5fd9123dae8c6",
+                            "label": "Content",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
                             "key": "field_5cb9904593f43",
                             "label": "Title",
                             "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5f89840345a3d",
+                            "label": "Text",
+                            "name": "text",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -112,6 +248,116 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
+                        },
+                        {
+                            "key": "field_5fd9124bae8c7",
+                            "label": "Settings",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_5fd91257ae8c8",
+                            "label": "Height",
+                            "name": "height",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "section-full-image-text--small": "Small",
+                                "section-full-image-text--medium": "Medium",
+                                "section-full-image-text--high": "High"
+                            },
+                            "allow_null": 0,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5f8986e645f45": {
+                    "key": "layout_5f8986e645f45",
+                    "name": "section-blogs",
+                    "label": "Blogs",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5f8986e645f46",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5f8986fe45f49",
+                            "label": "Blogs",
+                            "name": "blogs",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "post"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
+                            "elements": "",
+                            "min": "",
+                            "max": 3,
+                            "return_format": "object"
+                        },
+                        {
+                            "key": "field_5f89876345f4a",
+                            "label": "Button",
+                            "name": "button",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
                         }
                     ],
                     "min": "",
@@ -137,8 +383,11 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
+    "hide_on_screen": [
+        "the_content",
+        "excerpt"
+    ],
+    "active": true,
     "description": "",
-    "modified": 1555665225
+    "modified": 1608062406
 }

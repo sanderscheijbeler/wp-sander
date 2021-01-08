@@ -40,4 +40,4 @@ $terms = get_terms(
 // Get all career categories for filters
 $context['filters'] = $terms;
 
-Timber\Timber::render('page-list.twig', $context);
+Timber\Timber::render('page/page-list.twig', $context);

@@ -1,0 +1,134 @@
+{% extends "base/base.twig" %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-24">
+                <h1>
+                    Styleguide
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+                <h2>Colors</h2>
+            </div>
+            <div class="col-18">
+                <div class="color" style="background-color:red; display: inline-block; height: 100px; width: 100px; margin-right: 1rem;"></div>
+                <div class="color" style="background-color:lightgray; display: inline-block; height: 100px; width: 100px; margin:0 1rem;"></div>
+                <div class="color" style="background-color:blue; display: inline-block; height: 100px; width: 100px; margin-left: 1rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+                <h2>Buttons</h2>
+            </div>
+            <div class="col-18">
+
+                <h3 class="d-block">
+                    Basic buttons
+                </h3>
+                <button type="button" class="btn btn-primary">Primary</button>
+
+                <button type="button" class="btn btn-secondary">Secondary</button>
+
+                <button type="button" class="btn btn-success">Success</button>
+
+                <button type="button" class="btn btn-danger">Danger</button>
+
+                <button type="button" class="btn btn-warning">Warning</button>
+
+                <button type="button" class="btn btn-info">Info</button>
+
+                <button type="button" class="btn btn-light">Light</button>
+
+                <button type="button" class="btn btn-dark">Dark</button>
+
+                <button type="button" class="btn btn-link">Link</button>
+
+                <br><br>
+                <h3 class="d-block">
+                    Form buttons
+                </h3>
+
+                <a class="btn btn-primary" href="#" role="button">Link</a>
+
+                <button class="btn btn-primary" type="submit">Button</button>
+
+                <input class="btn btn-primary" type="button" value="Input">
+
+                <input class="btn btn-primary" type="submit" value="Submit">
+
+                <input class="btn btn-primary" type="reset" value="Reset">
+
+                <br><br>
+                <h3 class="d-block">
+                    Outline buttons
+                </h3>
+
+                <button type="button" class="btn btn-outline-primary">Primary</button>
+
+                <button type="button" class="btn btn-outline-secondary">Secondary</button>
+
+                <button type="button" class="btn btn-outline-success">Success</button>
+
+                <button type="button" class="btn btn-outline-danger">Danger</button>
+
+                <button type="button" class="btn btn-outline-warning">Warning</button>
+
+                <button type="button" class="btn btn-outline-info">Info</button>
+
+                <button type="button" class="btn btn-outline-light">Light</button>
+
+                <button type="button" class="btn btn-outline-dark">Dark</button>
+
+                <br><br>
+                <h3 class="d-block">
+                    Large buttons
+                </h3>
+
+                <button type="button" class="btn btn-primary btn-lg">Large button</button>
+
+                <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+
+                <br><br>
+                <h3 class="d-block">
+                    Small buttons
+                </h3>
+
+                <button type="button" class="btn btn-primary btn-sm">Small button</button>
+
+                <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+
+                <br><br>
+                <h3 class="d-block">
+                    Disabled buttons
+                </h3>
+
+                <button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
+
+                <button type="button" class="btn btn-secondary btn-lg" disabled>Button</button>
+
+                <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
+
+                <a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+
+                <br><br>
+                <h3 class="d-block">
+                    Fluid buttons
+                </h3>
+
+                <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+
+                <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

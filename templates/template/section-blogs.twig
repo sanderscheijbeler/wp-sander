@@ -1,0 +1,33 @@
+<section class="section-blogs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-blog__title">
+                    {{ block.title }}
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            {% set itemnum = 1 %}
+            {% for post in block.blogs %}
+            {% if itemnum == 1 %}
+            <div class="col-12 col-md-6">
+                {% include ['blog-post.twig'] %}
+            </div>
+            {% else %}
+            <div class="col-6 col-md-3">
+                {% include ['blog-post.twig'] %}
+            </div>
+                {% endif %}
+                {% set itemnum = itemnum + 1 %}
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <a class="button button--dark" href="{{ block.button["url"] }}" target="_self">
+                    {{ block.button["title"] }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -34,6 +34,6 @@ $context['items'] = $posts;
 
 $templates = array( 'index.twig' );
 if ( is_home() ) {
-	array_unshift( $templates, 'home-loadmore.twig', 'home.twig' );
+	array_unshift( $templates, 'template/home-loadmore.twig', 'index.twig' );
 }
 Timber\Timber::render( $templates, $context );

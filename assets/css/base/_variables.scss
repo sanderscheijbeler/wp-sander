@@ -1,5 +1,13 @@
+// Use when header-top
 $header-height : 100px;
 $header-height-sm : 70px;
+
+// Use when header-left
+$header-width : 300px;
+$header-width-sm : 300px;
+
+// Max width submenu
+$max-width-submenu : 200px;
 
 // Font Settings
 $main-font: 'lato';
@@ -9,14 +17,14 @@ $third-font: 'Playfair Display';
 $header-fallback-font: "Times New Roman", Times, serif;
 $body-fallback-font : Arial, Helvetica, sans-serif;
 
-$header-font : $third-font, $body-fallback-font;
+$header-font : $main-font, $body-fallback-font;
 $body-font :$main-font, $body-fallback-font;
 $accent-font : $second-font, $body-font;
 
 //Font size - line height settings
-$base-fontsize : 15px;
+$base-fontsize : 16px;
 $base-lineheight : 1.6em;
-$base-fontsize-sm : 15px;
+$base-fontsize-sm : 16px;
 $base-lineheight-sm : 1.6em;
 $base-fontweight : 400;
 
@@ -35,7 +43,6 @@ $h6-sm  : 12px;
 
 
 // Custom site colors
-
 $black : #000000;
 $white : #ffffff;
 $mos-green  : #9BA78A;
@@ -44,13 +51,24 @@ $dark-gray : #3C3D41;
 
 $red : orange;
 
+
+// Transition defaults
+$transition-default-smoothing: ease-in-out;
+$transition-default-time: .2s;
+$transition-default: all $transition-default-time $transition-default-smoothing;
+
 //Setting the working variables
-$header-wrapper-height : $header-height;
-$header-wrapper-height-sm : $header-height-sm;
+$header-wrapper-height-top : $header-height;
+$header-wrapper-height-top-sm : $header-height-sm;
+$header-wrapper-width-side : $header-width;
+$header-wrapper-width-side-sm : $header-width-sm;
 $header-wrapper-bg : $white;
 $current-menu-item-bg : #ffffff;
 $menu-item-line-height : $header-height;
-$content-wrapper-height : $header-height;
+$content-wrapper-height-top : $header-height;
+$content-wrapper-height-top-sm : $header-height-sm;
+$content-wrapper-height-side : $header-height;
+$content-wrapper-height-side-sm : $header-height-sm;
 
 $body-font-color : $black;
 $body-font-color-on-dark : $white;

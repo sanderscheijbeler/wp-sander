@@ -2,15 +2,23 @@ var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
 // element variables
 var els = {
-    header: document.querySelector('header.header__wrapper')
+    header: document.querySelector('header.HeaderScroll')
 }
 
 // init varibles
 var didScroll,
     lastScrollTop = 0,
     delta = 5,
-    navbarHeight = els.header.offsetHeight,
+    navbarHeight = setNavbarHeight(),
     maxWidth = 768;
+
+function setNavbarHeight() {
+    if (els.header) {
+        return els.header.offsetHeight;
+    } else {
+        return 0;
+    }
+}
 
 // get current scroll
 function getCurrentScroll() {
@@ -40,26 +48,28 @@ function menuOnScroll() {
     lastScrollTop = currentScroll;
 }
 
-// show menu when mouse hovers menu area
-document.body.onmousemove = function(e) {
-    var pageY = e.pageY || e.clientY,
-        scrollTop = window.pageYOffset || document.documentElement.scrollTop,
-        trigger_area = pageY - scrollTop,
-        trigger_threshold = navbarHeight;
+if (els.header) {
+    // show menu when mouse hovers menu area
+    document.body.onmousemove = function(e) {
+        var pageY = e.pageY || e.clientY,
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop,
+            trigger_area = pageY - scrollTop,
+            trigger_threshold = navbarHeight;
 
-    if (trigger_area <= trigger_threshold) {
-        els.header.classList.remove('header__wrapper--hidden');
-    }
-};
+        if (trigger_area <= trigger_threshold) {
+            els.header.classList.remove('header__wrapper--hidden');
+        }
+    };
 
-// set on scroll behavior
-window.onscroll = function() {
-    didScroll = true;
-};
+    // set on scroll behavior
+    window.onscroll = function() {
+        didScroll = true;
+    };
 
-setInterval(function() {
-    if (didScroll) {
-        menuOnScroll();
-        didScroll = false;
-    }
-}, 250);
+    setInterval(function() {
+        if (didScroll) {
+            menuOnScroll();
+            didScroll = false;
+        }
+    }, 250);
+}

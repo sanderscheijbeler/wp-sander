@@ -1,148 +1,35 @@
-
 .nav {
     &__main {
-        display: block;
-        flex: 1 1 auto;
         height: 100%;
 
-        @include media-breakpoint-down(sm) {
-            display: flex;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(#fff, .98);
-
-            flex-direction: column;
-            justify-content: center;
-            opacity: 0;
-            transform: translateY(-105%);
-            transition: transform 240ms ease-in-out, opacity 240ms ease-in-out 120ms;
-        }
-
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            height: 100%;
+        @include atroot (".layout__align--top") {
+            display: block;
+            flex: 1 1 auto;
 
             @include media-breakpoint-down(sm) {
                 display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(#fff, .98);
+
                 flex-direction: column;
                 justify-content: center;
-                //margin: 0 0 0 20px;
+                opacity: 0;
+                transform: translateY(-105%);
+                transition: transform 240ms ease-in-out, opacity 240ms ease-in-out 120ms;
             }
+        }
 
-            li {
-                padding: 5px 10px;
-                margin: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                @include media-breakpoint-down(sm) {
-                    padding: 5px 15px;
-                }
-
-                a {
-                    font-size: 1rem;
-                    line-height: 1.1em;
-                    color: #000;
-
-                    @include media-breakpoint-down(sm) {
-                        font-size: 1.7rem;
-                        line-height: 1.1em;
-                    }
-                }
-
-                ul {
-                    display: none;
-                    position: absolute;
-                    top: 100%;
-                    left: 6px;
-                    min-width: 200px;
-                    background-color: #ffffff;
-                    height: auto;
-                    padding: 10px;
-
-                    .menu-item {
-                        display: block;
-                        margin: 0;
-                        padding: 10px 0;
-
-                        @include media-breakpoint-down(sm) {
-                            margin: 0 0 0 20px;
-                        }
-
-                        a {
-                            padding: 10px 5px;
-                            line-height: 1.5em;
-                            font-weight: 400;
-                        }
-                    }
-
-                    .current-menu-item {
-                        //background-color: $current-menu-item-bg;
-
-                        a {
-                            //font-weight: 800;
-                        }
-                    }
-                }
-            }
-
-            .menu-item {
-                //display: flex;
-
-                a {
-                    //padding: 0 6px;
-                    //line-height: $menu-item-line-height;
-                }
-
-                &:first-child {
-                    a {
-                        //padding-left: 0;
-                    }
-                }
-
-                &:last-child {
-                    a {
-                        //padding-right: 0;
-                    }
-                }
-            }
-
-            .menu-item-has-children {
-                position: relative;
-
-                &:hover {
-                    ul {
-                        display: block;
-                    }
-                }
-            }
-
-            .current-menu-item {
-                > a {
-                    font-weight: 800;
-                }
-            }
-
-            .current_page_ancestor {
-                a {
-                    //font-weight: 800;
-                }
-            }
+        @include atroot (".layout__align--left") {
+            padding: 1rem;
         }
     }
 
     &__button {
         display: none;
-
         height: 40px;
         width: 40px;
         position: relative;
@@ -167,14 +54,119 @@
             &:nth-child(1) {
                 transform: translateY(-10px);
             }
+
             &:nth-child(2) {
                 width: 80%;
                 right: 0;
             }
+
             &:nth-child(3) {
                 transform: translateY(10px);
             }
         }
+    }
+}
 
+.nav__main ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100%;
+
+    @include atroot (".layout__align--top") {
+        flex-direction: row;
+        justify-content: flex-end;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    @include atroot (".layout__align--left") {
+        flex-direction: column;
+    }
+}
+.nav__main ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 6px;
+    max-width: $max-width-submenu;
+    background-color: #ffffff;
+    height: auto;
+    padding: 5px 10px;
+
+    @include atroot (".layout__align--top") {}
+    @include atroot (".layout__align--left") {
+        border: 1px solid lightgray;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    }
+}
+.nav__main li {
+    display: flex;
+    padding: 5px 10px;
+    margin: 0;
+
+    @include media-breakpoint-down(sm) {
+        padding: 5px 15px;
+    }
+
+    @include atroot (".layout__align--top") {
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include atroot (".layout__align--left") {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+.nav__main ul ul li {
+    display: block;
+    margin: 0;
+    padding: 10px 0;
+
+    @include media-breakpoint-down(sm) {
+        margin: 0 0 0 20px;
+    }
+}
+.nav__main li a {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.1em;
+    color: #000;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 1.7rem;
+        line-height: 1.1em;
+    }
+
+    @include atroot (".layout__align--left") {
+        font-size: 1.3rem;
+        line-height: 1.1em;
+    }
+}
+
+.nav__main {
+    .menu-item-has-children {
+        position: relative;
+
+        &:hover {
+            ul {
+                display: block;
+            }
+        }
+    }
+
+    .current-menu-item {
+        > a {
+            font-weight: 800;
+        }
     }
 }

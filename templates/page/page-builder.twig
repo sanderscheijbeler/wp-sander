@@ -1,0 +1,9 @@
+{% extends "base/base.twig" %}
+
+{% block content %}
+    {% for block in post.meta('cf_blocks') %}
+        {% include './components/' ~ block.acf_fc_layout ~ '.twig' ignore missing with {
+            block_id: loop.index
+        } %}
+    {% endfor %}
+{% endblock %}

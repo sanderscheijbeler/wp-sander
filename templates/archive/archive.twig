@@ -1,0 +1,30 @@
+{# This file demonstrates using most of the index.twig template and modifying
+   just a small part. See `search.twig` for an example of another approach #}
+
+{% extends "base/base.twig" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-24">
+                <h2 class="heading3">
+                    Alle berichten binnen de categorie: {{ title }}
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-24">
+                    {% include ['card/blog-post-small.twig'] %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-24">
+                {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

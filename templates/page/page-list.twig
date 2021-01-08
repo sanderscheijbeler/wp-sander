@@ -1,0 +1,42 @@
+{% extends "base/base.twig" %}
+
+{% block content %}
+    <div class="list__header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="list__title">
+                        <h1 class="heading1">
+                            {{ post.title }}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list__search">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="list__formwrapper">
+                        <div class="form__input has-feedback">
+                            <input type="text" class="form-control QuickSearch" placeholder="Search"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="grid row" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
+            {% for item in items %}
+                {% include 'card/list-post.twig' with {'post': item} %}
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+{% endblock %}

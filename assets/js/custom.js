@@ -65,14 +65,23 @@ $(document).ready(function () {
 var width = window.innerWidth > 0 ? window.innerWidth : screen.width; // element variables
 
 var els = {
-  header: document.querySelector('header.header__wrapper') // init varibles
+  header: document.querySelector('header.HeaderScroll') // init varibles
 
 };
 var didScroll,
     lastScrollTop = 0,
     delta = 5,
-    navbarHeight = els.header.offsetHeight,
-    maxWidth = 768; // get current scroll
+    navbarHeight = setNavbarHeight(),
+    maxWidth = 768;
+
+function setNavbarHeight() {
+  if (els.header) {
+    return els.header.offsetHeight;
+  } else {
+    return 0;
+  }
+} // get current scroll
+
 
 function getCurrentScroll() {
   return window.pageYOffset || document.documentElement.scrollTop;
@@ -94,31 +103,33 @@ function menuOnScroll() {
   }
 
   lastScrollTop = currentScroll;
-} // show menu when mouse hovers menu area
+}
+
+if (els.header) {
+  // show menu when mouse hovers menu area
+  document.body.onmousemove = function (e) {
+    var pageY = e.pageY || e.clientY,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop,
+        trigger_area = pageY - scrollTop,
+        trigger_threshold = navbarHeight;
+
+    if (trigger_area <= trigger_threshold) {
+      els.header.classList.remove('header__wrapper--hidden');
+    }
+  }; // set on scroll behavior
 
 
-document.body.onmousemove = function (e) {
-  var pageY = e.pageY || e.clientY,
-      scrollTop = window.pageYOffset || document.documentElement.scrollTop,
-      trigger_area = pageY - scrollTop,
-      trigger_threshold = navbarHeight;
+  window.onscroll = function () {
+    didScroll = true;
+  };
 
-  if (trigger_area <= trigger_threshold) {
-    els.header.classList.remove('header__wrapper--hidden');
-  }
-}; // set on scroll behavior
-
-
-window.onscroll = function () {
-  didScroll = true;
-};
-
-setInterval(function () {
-  if (didScroll) {
-    menuOnScroll();
-    didScroll = false;
-  }
-}, 250);
+  setInterval(function () {
+    if (didScroll) {
+      menuOnScroll();
+      didScroll = false;
+    }
+  }, 250);
+}
 "use strict";
 
 var menuButton = document.querySelector('.nav__button');
