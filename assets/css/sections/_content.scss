@@ -1,7 +1,7 @@
 .content {
     &__wrapper {
 
-        @include atroot (".layout__align--top") {
+        @at-root .layout__align--top & {
             padding: $content-wrapper-height-top-sm 0 0 0;
 
             @include media-breakpoint-up(md) {
@@ -10,16 +10,14 @@
 
         }
 
-        @include atroot (".layout__align--left") {
-            padding: 0 0 0 $header-wrapper-width-side-sm;
+        @at-root .layout__align--left & {
+            padding: 0;
 
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(lg) {
                 padding: 0 0 0 $header-wrapper-width-side;
             }
         }
 
-        @include atroot (".layout__align--right") {
-        }
-
+        @at-root .layout__align--right & {}
     }
 }

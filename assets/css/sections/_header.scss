@@ -3,7 +3,7 @@
     &__wrapper {
         transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 
-        @include atroot (".layout__align--top") {
+        @at-root .layout__align--top & {
             position: fixed;
             top: 0;
             left: 0;
@@ -20,17 +20,27 @@
             }
         }
 
-        @include atroot (".layout__align--left") {
+        @at-root .layout__align--left & {
             position: fixed;
             top: 0;
             left: 0;
             bottom: 0;
             width: $header-wrapper-width-side-sm;
+            background-color: rgba($header-wrapper-bg, 1);
+            transform: translate3d(-$header-wrapper-width-side-sm,0,0);
+            z-index: 100;
 
-            @include media-breakpoint-down(sm) {
+            @include media-breakpoint-up(lg) {
                 width: $header-wrapper-width-side;
+                transform: translate3d(0,0,0);
             }
         }
+
+        @at-root .layout__align--left.menu__open &{
+            transform: translate3d(0,0,0);
+        }
+
+
         //
         //@include atroot (".layout__align--right") {
         //}

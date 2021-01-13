@@ -2,7 +2,7 @@
     &__main {
         height: 100%;
 
-        @include atroot (".layout__align--top") {
+        @at-root .layout__align--top & {
             display: block;
             flex: 1 1 auto;
 
@@ -23,13 +23,13 @@
             }
         }
 
-        @include atroot (".layout__align--left") {
+        @at-root .layout__align--left & {
             padding: 1rem;
         }
     }
 
     &__button {
-        display: none;
+        display: inline-block;
         height: 40px;
         width: 40px;
         position: relative;
@@ -38,9 +38,19 @@
         &:hover {
             cursor: pointer;
         }
+        @at-root .layout__align--top & {
+            @include media-breakpoint-up(md) {
+                display: none;
+            }
+        }
 
-        @include media-breakpoint-down(sm) {
-            display: block;
+        @at-root .layout__align--left & {
+            position: fixed;
+            left: $header-wrapper-width-side-sm + 20px;
+
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
         }
 
         span {
@@ -74,7 +84,7 @@
     display: flex;
     height: 100%;
 
-    @include atroot (".layout__align--top") {
+    @at-root .layout__align--top & {
         flex-direction: row;
         justify-content: flex-end;
 
@@ -84,7 +94,7 @@
         }
     }
 
-    @include atroot (".layout__align--left") {
+    @at-root .layout__align--left & {
         flex-direction: column;
     }
 }
@@ -98,8 +108,8 @@
     height: auto;
     padding: 5px 10px;
 
-    @include atroot (".layout__align--top") {}
-    @include atroot (".layout__align--left") {
+    @at-root .layout__align--top & {}
+    @at-root .layout__align--left & {
         border: 1px solid lightgray;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
     }
@@ -113,12 +123,12 @@
         padding: 5px 15px;
     }
 
-    @include atroot (".layout__align--top") {
+    @at-root .layout__align--top & {
         justify-content: center;
         align-items: center;
     }
 
-    @include atroot (".layout__align--left") {
+    @at-root .layout__align--left & {
         justify-content: flex-start;
         align-items: flex-start;
     }
@@ -147,7 +157,7 @@
         line-height: 1.1em;
     }
 
-    @include atroot (".layout__align--left") {
+    @at-root .layout__align--left & {
         font-size: 1.3rem;
         line-height: 1.1em;
     }
