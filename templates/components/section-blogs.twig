@@ -1,0 +1,28 @@
+<section class="section-blogs">
+    <div class="container">
+        <div class="row">
+            <div class="col-22 offset-1">
+                <h2 class="section-blogs__title">{{ block.title }}</h2>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            {% for post in block.blogs %}
+                {% set image = Image(post.image) %}
+                <div class="col-22 offset-1 col-md-8 offset-md-0">
+                    {% include ['card/blog-post.twig'] %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-22 offset-1">
+                <div class="section-blogs__button-wrapper">
+                    <a class="section-blogs__button" href="{{ block.button["url"] }}"
+                       target="{{ block.button["target"] }}">{{ block.button["title"] }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
