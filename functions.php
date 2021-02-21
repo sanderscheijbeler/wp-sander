@@ -69,12 +69,12 @@ class StarterSite extends Timber\Site
         // disable for posts
         add_filter('use_block_editor_for_post', '__return_false', 10);
 
-		// disable for post types
+        // disable for post types
         add_filter('use_block_editor_for_post_type', '__return_false', 10);
 
-		if (function_exists('acf_add_options_page')) {
-			acf_add_options_page();
-		}
+        if (function_exists('acf_add_options_page')) {
+            acf_add_options_page();
+        }
 
         // Cleanup Dashboard
         add_action('wp_dashboard_setup', array($this, 'wpc_remove_dashboard_widgets'), 9999);
@@ -189,6 +189,19 @@ class StarterSite extends Timber\Site
         return $text;
     }
 
+
+    /** Function to wrap each word of the string in spans
+     *
+     * @param string $text
+     */
+    public function with_span($text)
+    {
+        $text_as_array = explode(" ", $text);
+        $text_array_with_spans = array_map(function($val) { return '<span>' . $val . '</span>'; }, $text_as_array);
+        $text = implode(',', $text_array_with_spans);
+        return $text;
+    }
+
     /** This is where you can add your own functions to twig.
      *
      * @param string $twig get extension.
@@ -197,6 +210,7 @@ class StarterSite extends Timber\Site
     {
         $twig->addExtension(new Twig_Extension_StringLoader());
         $twig->addFilter(new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
+        $twig->addFilter(new Twig_SimpleFilter('with_span', array($this, 'with_span')));
         return $twig;
     }
 
@@ -210,9 +224,10 @@ class StarterSite extends Timber\Site
 
     /**
      * Disable wp-embed script
-    */
-    function my_deregister_scripts(){
-        wp_deregister_script( 'wp-embed' );
+     */
+    function my_deregister_scripts()
+    {
+        wp_deregister_script('wp-embed');
     }
 
     /**
@@ -231,7 +246,8 @@ class StarterSite extends Timber\Site
      * Change the footer in admin dashboard
      *
      */
-    function remove_footer_admin () {
+    function remove_footer_admin()
+    {
         echo 'This wordpress theme is made by: <a href="http://www.sanderscheijbeler.nl" target="_blank">Sander Scheijbeler</a>';
     }
 }
