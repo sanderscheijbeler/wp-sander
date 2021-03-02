@@ -171,12 +171,14 @@ class StarterSite extends Timber\Site
 
     function loadScripts()
     {
-        wp_enqueue_script('vendor-js', get_template_directory_uri() . '/assets/js/vendor.js', array(), '1.0.0', true);
-        wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), '1.0.0', true);
+//        wp_enqueue_script('vendor-js', get_template_directory_uri() . '/assets/js/vendor.js', array(), '1.0.0', true);
+        wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/dist/js/main.min.js', array(), '1.0.0', true);
 
         // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
         wp_localize_script('custom-js', 'ajax_object',
-            array('ajax_url' => admin_url('admin-ajax.php'), 'we_value' => 1234));
+            array(
+            	'ajax_url' => admin_url('admin-ajax.php'),
+				'we_value' => 1234));
     }
 
     /** This Would return 'foo bar!'.
