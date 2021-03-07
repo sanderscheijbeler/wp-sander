@@ -1,6 +1,4 @@
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-
-// element variables
 var els = {
     header: document.querySelector('header.HeaderScroll')
 }
