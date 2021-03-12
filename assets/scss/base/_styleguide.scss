@@ -1,0 +1,12 @@
+.color {
+
+	&__primary {
+		background-color: $c-primary;
+	}
+	&__secondary {
+		background-color: $c-secondary;
+	}
+	&__tertiary {
+		background-color: $c-tertiary;
+	}
+}

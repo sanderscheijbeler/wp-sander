@@ -1,134 +1,300 @@
 {% extends "base/base.twig" %}
 
 {% block content %}
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-24">
-                <h1>
-                    Styleguide
-                </h1>
-            </div>
-        </div>
-    </div>
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col-24">
+				<h1>
+					Styleguide
+				</h1>
+			</div>
+		</div>
+	</div>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-6">
-                <h2>Colors</h2>
-            </div>
-            <div class="col-18">
-                <div class="color" style="background-color:red; display: inline-block; height: 100px; width: 100px; margin-right: 1rem;"></div>
-                <div class="color" style="background-color:lightgray; display: inline-block; height: 100px; width: 100px; margin:0 1rem;"></div>
-                <div class="color" style="background-color:blue; display: inline-block; height: 100px; width: 100px; margin-left: 1rem;"></div>
-            </div>
-        </div>
-    </div>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-6">
+				<h2>Colors</h2>
+			</div>
+			<div class="col-18">
+				<div class="color__primary"
+					 style="display: inline-flex; height: 100px; width: 100px; margin-right: 1rem; justify-content: center; align-items: center">
+					Primary
+				</div>
+				<div class="color__secondary"
+					 style="display: inline-flex; height: 100px; width: 100px; margin:0 1rem; justify-content: center; align-items: center">
+					Secondary
+				</div>
+				<div class="color__tertiary"
+					 style="display: inline-flex; height: 100px; width: 100px; margin-left: 1rem; justify-content: center; align-items: center">
+					Tertiary
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-6">
-                <h2>Buttons</h2>
-            </div>
-            <div class="col-18">
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-6">
+				<h2>Buttons</h2>
+			</div>
+			<div class="col-18">
 
-                <h3 class="d-block">
-                    Basic buttons
-                </h3>
-                <button type="button" class="btn btn-primary">Primary</button>
+				<h3 class="d-block">
+					Basic buttons
+				</h3>
+				<p>
+				<pre style="font-size: 14px">btn btn-name</pre>
+				</p>
+				<button type="button" class="btn btn-primary">Primary</button>
 
-                <button type="button" class="btn btn-secondary">Secondary</button>
+				<button type="button" class="btn btn-secondary">Secondary</button>
 
-                <button type="button" class="btn btn-success">Success</button>
+				<button type="button" class="btn btn-success">Success</button>
 
-                <button type="button" class="btn btn-danger">Danger</button>
+				<button type="button" class="btn btn-danger">Danger</button>
 
-                <button type="button" class="btn btn-warning">Warning</button>
+				<button type="button" class="btn btn-warning">Warning</button>
 
-                <button type="button" class="btn btn-info">Info</button>
+				<button type="button" class="btn btn-info">Info</button>
 
-                <button type="button" class="btn btn-light">Light</button>
+				<button type="button" class="btn btn-light">Light</button>
 
-                <button type="button" class="btn btn-dark">Dark</button>
+				<button type="button" class="btn btn-dark">Dark</button>
 
-                <button type="button" class="btn btn-link">Link</button>
+				<button type="button" class="btn btn-link">Link</button>
 
-                <br><br>
-                <h3 class="d-block">
-                    Form buttons
-                </h3>
+				<br><br>
+				<h3 class="d-block">
+					Form buttons
+				</h3>
 
-                <a class="btn btn-primary" href="#" role="button">Link</a>
+				<p>
+				<pre style="font-size: 14px">btn as a, button or input</pre>
+				</p>
 
-                <button class="btn btn-primary" type="submit">Button</button>
+				<a class="btn btn-primary" href="#" role="button">Link</a>
 
-                <input class="btn btn-primary" type="button" value="Input">
+				<button class="btn btn-primary" type="submit">Button</button>
 
-                <input class="btn btn-primary" type="submit" value="Submit">
+				<input class="btn btn-primary" type="button" value="Input">
 
-                <input class="btn btn-primary" type="reset" value="Reset">
+				<input class="btn btn-primary" type="submit" value="Submit">
 
-                <br><br>
-                <h3 class="d-block">
-                    Outline buttons
-                </h3>
+				<input class="btn btn-primary" type="reset" value="Reset">
 
-                <button type="button" class="btn btn-outline-primary">Primary</button>
+				<br><br>
+				<h3 class="d-block">
+					Outline buttons
+				</h3>
 
-                <button type="button" class="btn btn-outline-secondary">Secondary</button>
+				<p>
+				<pre style="font-size: 14px">btn btn-outline-name</pre>
+				</p>
 
-                <button type="button" class="btn btn-outline-success">Success</button>
+				<button type="button" class="btn btn-outline-primary">Primary</button>
 
-                <button type="button" class="btn btn-outline-danger">Danger</button>
+				<button type="button" class="btn btn-outline-secondary">Secondary</button>
 
-                <button type="button" class="btn btn-outline-warning">Warning</button>
+				<button type="button" class="btn btn-outline-success">Success</button>
 
-                <button type="button" class="btn btn-outline-info">Info</button>
+				<button type="button" class="btn btn-outline-danger">Danger</button>
 
-                <button type="button" class="btn btn-outline-light">Light</button>
+				<button type="button" class="btn btn-outline-warning">Warning</button>
 
-                <button type="button" class="btn btn-outline-dark">Dark</button>
+				<button type="button" class="btn btn-outline-info">Info</button>
 
-                <br><br>
-                <h3 class="d-block">
-                    Large buttons
-                </h3>
+				<button type="button" class="btn btn-outline-light">Light</button>
 
-                <button type="button" class="btn btn-primary btn-lg">Large button</button>
+				<button type="button" class="btn btn-outline-dark">Dark</button>
 
-                <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+				<br><br>
+				<h3 class="d-block">
+					Large buttons
+				</h3>
 
-                <br><br>
-                <h3 class="d-block">
-                    Small buttons
-                </h3>
+				<p>
+				<pre style="font-size: 14px">btn btn-lg</pre>
+				</p>
 
-                <button type="button" class="btn btn-primary btn-sm">Small button</button>
+				<button type="button" class="btn btn-primary btn-lg">Large button</button>
 
-                <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+				<button type="button" class="btn btn-secondary btn-lg">Large button</button>
 
-                <br><br>
-                <h3 class="d-block">
-                    Disabled buttons
-                </h3>
+				<br><br>
+				<h3 class="d-block">
+					Small buttons
+				</h3>
 
-                <button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
+				<p>
+				<pre style="font-size: 14px">btn btn-sm</pre>
+				</p>
 
-                <button type="button" class="btn btn-secondary btn-lg" disabled>Button</button>
+				<button type="button" class="btn btn-primary btn-sm">Small button</button>
 
-                <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
+				<button type="button" class="btn btn-secondary btn-sm">Small button</button>
 
-                <a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+				<br><br>
+				<h3 class="d-block">
+					Disabled buttons
+				</h3>
 
-                <br><br>
-                <h3 class="d-block">
-                    Fluid buttons
-                </h3>
+				<p>
+				<pre style="font-size: 14px">disabled</pre>
+				</p>
 
-                <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+				<button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
 
-                <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+				<button type="button" class="btn btn-secondary btn-lg" disabled>Button</button>
 
-            </div>
-        </div>
-    </div>
+				<a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary
+					link</a>
+
+				<a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+
+				<br><br>
+				<h3 class="d-block">
+					Fluid buttons
+				</h3>
+
+				<p>
+				<pre style="font-size: 14px">btn btn-block</pre>
+				</p>
+
+				<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+
+				<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-6">
+				<h2>Typography</h2>
+			</div>
+			<div class="col-18">
+
+				<h1 class="heading0">
+					Heading 0
+				</h1>
+
+				<h1 class="heading1">
+					Heading 1
+				</h1>
+
+				<h2 class="heading2">
+					Heading 2
+				</h2>
+
+				<h3 class="heading3">
+					Heading 3
+				</h3>
+
+				<h4 class="heading4">
+					Heading 4
+				</h4>
+
+				<h5 class="heading5">
+					Heading 5
+				</h5>
+
+				<h6 class="heading6">
+					Heading 6
+				</h6>
+
+				<hr>
+
+				<p> Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>. Ab adipisci, aliquam
+					animi at <em>cumque debitis doloremque doloribus</em> in incidunt laudantium magni modi neque
+					<a href="#">nesciunt nulla pariatur quae reprehenderit</a> tempore veritatis. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. A animi blanditiis facere fugiat ipsum perferendis quas quia
+					reprehenderit veritatis vitae? Commodi corporis cupiditate doloremque eaque maxime officia optio
+					rerum vero.</p>
+
+				<hr>
+
+				<ul>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ul>
+
+				<ol>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-6">
+				<h2>Rich Text area</h2>
+				<p>
+				<pre>.txt-body</pre>
+				</p>
+			</div>
+			<div class="col-18 txt-body">
+				<h1>
+					Heading 1
+				</h1>
+
+				<h2>
+					Heading 2
+				</h2>
+
+				<h3>
+					Heading 3
+				</h3>
+
+				<h4>
+					Heading 4
+				</h4>
+
+				<h5>
+					Heading 5
+				</h5>
+
+				<h6>
+					Heading 6
+				</h6>
+
+				<hr>
+
+				<p> Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>. Ab adipisci, aliquam
+					animi at <em>cumque debitis doloremque doloribus</em> in incidunt laudantium magni modi neque
+					<a href="#">nesciunt nulla pariatur quae reprehenderit</a> tempore veritatis. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit. A animi blanditiis facere fugiat ipsum perferendis quas quia
+					reprehenderit veritatis vitae? Commodi corporis cupiditate doloremque eaque maxime officia optio
+					rerum vero.</p>
+
+				<hr>
+
+				<ul>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ul>
+
+				<ol>
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-6">
+				Form elementen
+			</div>
+			<div class="col-18">
+					{{ function('do_shortcode', '[contact-form-7 id="88" title="Contactformulier 1"]' ) }}
+			</div>
+		</div>
+	</div>
 {% endblock %}

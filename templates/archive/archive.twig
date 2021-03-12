@@ -16,7 +16,7 @@
         <div class="row">
             {% for post in posts %}
                 <div class="col-24">
-                    {% include ['card/blog-post-small.twig'] %}
+					{% include ['card/tease-'~post.post_type~'.twig', 'card/tease.twig'] %}
                 </div>
             {% endfor %}
         </div>
