@@ -41,9 +41,38 @@
         }
 
 
-        //
-        //@include atroot (".layout__align--right") {
-        //}
+
+		@at-root .layout__align--button & {
+			height: $header-wrapper-height-top;
+
+			.header__content {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				height: 100%;
+			}
+
+			.nav__main {
+				display: none;
+				pointer-events: none;
+			}
+        }
+
+		@at-root .layout__align--button.menu__open &{
+			.nav__main {
+				position: fixed;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				//background-color: red;
+				z-index: 100;
+				pointer-events: auto;
+			}
+		}
 
         //
         //@include media-breakpoint-down(sm) {

@@ -42,16 +42,19 @@ class StarterSite extends Timber\Site
     public function __construct()
     {
         add_action('after_setup_theme', array($this, 'theme_supports'));
+        add_action('after_setup_theme', array($this, 'register_menus'));
         add_filter('timber/context', array($this, 'add_to_context'));
         add_filter('timber/twig', array($this, 'add_to_twig'));
         add_action('init', array($this, 'register_post_types'));
         add_action('init', array($this, 'register_taxonomies'));
-        add_action('wp_footer', [$this, 'loadScripts']);
+        add_action('wp_enqueue_scripts', [$this, 'wp_sander_load_scripts']);
 
         add_action('wp_ajax_more_all_posts', array($this, 'ajax_more_all_posts'));
         add_action('wp_ajax_nopriv_more_all_posts', array($this, 'ajax_more_all_posts'));
         add_action('wp_print_styles', array($this, 'wps_deregister_styles'));
         add_action('wp_footer', array($this, 'my_deregister_scripts'));
+
+        add_action('widgets_init', array($this, 'theme_widgets_init'));
 
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_action('wp_print_styles', 'print_emoji_styles');
@@ -86,13 +89,25 @@ class StarterSite extends Timber\Site
     /** This is where you can register custom post types. */
     public function register_post_types()
     {
-
     }
 
     /** This is where you can register custom taxonomies. */
     public function register_taxonomies()
     {
+    }
 
+    /**
+     * Register menu's
+     */
+    public function register_menus()
+    {
+        register_nav_menus(
+            array(
+                'megaMenu' => 'Mega Menu',
+                'primary' => 'Primary Menu',
+                'footer' => 'Footer Menu'
+            )
+        );
     }
 
     /** This is where you add some context
@@ -104,7 +119,9 @@ class StarterSite extends Timber\Site
         $context['foo'] = 'bar';
         $context['stuff'] = 'I am a value set in your functions.php file';
         $context['notes'] = 'These values are available everytime you call Timber::get_context();';
-        $context['menu'] = new Timber\Menu();
+        $context['megaMenu'] = new Timber\Menu('megaMenu');
+        $context['menuPrimary'] = new Timber\Menu('primary');
+        $context['dynamic_sidebar'] = Timber::get_widgets('home_sidebar');
         $context['site'] = $this;
         $context['options'] = get_fields('options');
         return $context;
@@ -139,7 +156,8 @@ class StarterSite extends Timber\Site
          * to output valid HTML5.
          */
         add_theme_support(
-            'html5', array(
+            'html5',
+            array(
                 'comment-form',
                 'comment-list',
                 'gallery',
@@ -165,20 +183,26 @@ class StarterSite extends Timber\Site
 //        );
 
         add_theme_support('menus');
-
-
     }
 
-    function loadScripts()
+	/** Loading css, js and custom php into js
+	 *
+	 */
+    function wp_sander_load_scripts()
     {
-//        wp_enqueue_script('vendor-js', get_template_directory_uri() . '/assets/js/vendor.js', array(), '1.0.0', true);
-        wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/dist/js/main.js', array(), '1.0.0', true);
+
+
+		wp_enqueue_style('maincss', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/style.css') );
+        wp_enqueue_script('mainjs', get_template_directory_uri() . '/assets/dist/js/main.js', array(), filemtime( get_template_directory() . '/assets/dist/js/main.js' )	, true);
 
         // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
-        wp_localize_script('custom-js', 'ajax_object',
+        wp_localize_script(
+            'custom-js',
+            'ajax_object',
             array(
-            	'ajax_url' => admin_url('admin-ajax.php'),
-				'we_value' => 1234));
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'we_value' => 1234)
+        );
     }
 
     /** This Would return 'foo bar!'.
@@ -199,7 +223,9 @@ class StarterSite extends Timber\Site
     public function with_span($text)
     {
         $text_as_array = explode(" ", $text);
-        $text_array_with_spans = array_map(function($val) { return '<span>' . $val . '</span>'; }, $text_as_array);
+        $text_array_with_spans = array_map(function ($val) {
+            return '<span>' . $val . '</span>';
+        }, $text_as_array);
         $text = implode(',', $text_array_with_spans);
         return $text;
     }
@@ -251,6 +277,39 @@ class StarterSite extends Timber\Site
     function remove_footer_admin()
     {
         echo 'This wordpress theme is made by: <a href="http://www.sanderscheijbeler.nl" target="_blank">Sander Scheijbeler</a>';
+    }
+
+    /**
+     * Register our sidebars and widgetized areas.
+     *
+     */
+    function theme_widgets_init()
+    {
+        register_sidebar(array(
+            'name'          => 'Primary Sidebar',
+            'id'            => 'home_sidebar',
+            'before_widget' => '<div class="widget__wrapper">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget__title">',
+            'after_title'   => '</h3>',
+        ));
+
+        $location = 'megaMenu';
+        $css_class = 'has-mega-menu';
+        $locations = get_nav_menu_locations();
+        if (isset($locations[ $location ])) {
+            $menu = get_term($locations[ $location ], 'nav_menu');
+            if ($items = wp_get_nav_menu_items($menu->name)) {
+                foreach ($items as $item) {
+                    if (in_array($css_class, $item->classes)) {
+                        register_sidebar(array(
+                            'id'   => 'mega-menu-widget-area-' . $item->ID,
+                            'name' => $item->title . ' - Mega Menu',
+                        ));
+                    }
+                }
+            }
+        }
     }
 }
 

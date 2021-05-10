@@ -2,6 +2,10 @@
     &__align {
         &--top {}
         &--left {}
-        &--right {}
+        &--button {
+			&.menu__open {
+				overflow: hidden;
+			}
+		}
     }
 }

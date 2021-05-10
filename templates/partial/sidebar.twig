@@ -1,24 +1,5 @@
 <div class="sidebar">
-    <div class="sidebar__profile">
-        <h4 class="heading4 profile__title">
-            {{ options.cf_about_title }}
-        </h4>
-        <div class="profile__img" style="background-image: url('{{ options.cf_about_image["url"]|towebp }}')">
+	<h1>Sidebar</h1>
 
-        </div>
-        <div class="profile__content">
-            {{ options.cf_about_text }}
-
-            <a href="{{ options.cf_about_button['url'] }}" target="{{ options.cf_about_button['target'] }}" class="profile__button">
-                {{ options.cf_about_button['title'] }}
-            </a>
-        </div>
-    </div>
-
-    <div class="sidebar__moreinfo">
-        {% set sidebar_content = options.cf_about_more_info %}
-        {% for contentblock in sidebar_content %}
-            {{ contentblock.content }}
-        {% endfor %}
-    </div>
+	{{ dynamic_sidebar }}
 </div>

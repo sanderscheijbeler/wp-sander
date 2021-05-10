@@ -6,4 +6,9 @@
  * @subpackage  Timber
  */
 
-Timber::render( array( 'partial/sidebar.twig' ), $data );
+use Timber\Timber;
+
+$context = array();
+Timber::render( array( 'partial/sidebar.twig' ), $context );
+
+

@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-24">
+            <div class="col-22 offset-1 col-md-15 offset-md-0">
                 <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
                     <section class="article-content">
                         <h1 class="article-h1">{{ post.title }}</h1>
@@ -15,6 +15,9 @@
                     {% include "partial/section-comment.twig" %}
                 </article>
             </div>
+			<div class="col-22 offset-1 col-md-8 offset-md-1">
+				{% include "partial/sidebar.twig" %}
+			</div>
         </div>
     </div>
 {% endblock %}

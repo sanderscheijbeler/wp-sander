@@ -8,7 +8,9 @@
                     </a>
                 </h1>
                 <nav id="nav-main" class="nav__main" role="navigation">
-                    {% include "partial/menu.twig" with {'menu': menu.get_items} %}
+{#					{{ dump(menuPrimary) }}#}
+                    {% include "partial/menu.twig" with {'menu': menuPrimary.get_items} %}
+{#                    {% include "partial/menu.twig" with {'menu': megaMenu.get_items} %}#}
                 </nav>
                 <div class="nav__button">
                     <span></span>

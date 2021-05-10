@@ -34,7 +34,7 @@
             "choices": {
                 "layout__align--top": "Nav on top",
                 "layout__align--left": "Nav on left",
-                "layout__align--right": "Nav on right"
+                "layout__align--button": "Nav button"
             },
             "allow_null": 0,
             "default_value": "",
@@ -59,5 +59,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608321655
+    "modified": 1618426103
 }

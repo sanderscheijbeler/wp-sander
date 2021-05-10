@@ -13,7 +13,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-color: rgba(#fff, .98);
+                background-color: rgba($white, .98);
 
                 flex-direction: column;
                 justify-content: center;
@@ -26,6 +26,21 @@
         @at-root .layout__align--left & {
             padding: 1rem;
         }
+
+		@at-root .layout__align--button &{
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: $white;
+			z-index: 100;
+			pointer-events: auto;
+			padding-top: $header-wrapper-height-top;
+		}
     }
 
     &__button {
@@ -98,6 +113,15 @@
     @at-root .layout__align--left & {
         flex-direction: column;
     }
+
+	@at-root .layout__align--button & {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		overflow-y: auto;
+	}
 }
 .nav__main ul ul {
     display: none;
@@ -105,15 +129,24 @@
     top: 100%;
     right: 6px;
     max-width: $max-width-submenu;
-    background-color: #ffffff;
+    background-color: $white;
     height: auto;
     padding: 5px 10px;
 
     @at-root .layout__align--top & {}
     @at-root .layout__align--left & {
         border: 1px solid lightgray;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 25px 50px -12px;
     }
+
+	@at-root .layout__align--button & {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: static;
+		max-width: none;
+		background-color: transparent;
+	}
 }
 .nav__main li {
     display: flex;
@@ -133,6 +166,10 @@
         justify-content: flex-start;
         align-items: flex-start;
     }
+
+	@at-root .layout__align--button & {
+		flex-direction: column;
+	}
 }
 
 .nav__main ul ul li {
@@ -144,11 +181,22 @@
         margin: 0 0 0 20px;
     }
 }
+
+.nav__main ul ul li a {
+	@at-root .layout__align--button & {
+		font-size: 1.5rem;
+
+		@include media-breakpoint-up(sm) {
+			font-size: 2rem;
+		}
+	}
+}
+
 .nav__main li a {
     display: block;
     font-size: 1rem;
     line-height: 1.1em;
-    color: #000;
+    color: $black;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -162,6 +210,15 @@
         font-size: 1.3rem;
         line-height: 1.1em;
     }
+
+	@at-root .layout__align--button & {
+		overflow: visible;
+		font-size: 2rem;
+
+		@include media-breakpoint-up(sm) {
+			font-size: 3rem;
+		}
+	}
 }
 
 .nav__main {
@@ -170,7 +227,13 @@
 
         &:hover {
             ul {
-                display: block;
+				@at-root .layout__align--top & {
+					display: block;
+				}
+
+				@at-root .layout__align--left & {
+					display: block;
+				}
             }
         }
     }

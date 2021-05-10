@@ -1,30 +1,38 @@
-.wpcf7 input:not([type="checkbox"]):not([type="radio"]), select, textarea
-{
-	@extend .form-control;
-}
+.wpcf7 {
+	& input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]), select, textarea
+	{
+		@extend .form-control;
+	}
 
-.wpcf7 select {
- @extend select.form-control;
-}
+	& input[type="radio"] {
+		@extend .form-check-inline;
+	}
 
-.wpcf7 .wpcf7-radio {
-	display: flex;
-	flex-direction: column;
-}
+	& input[type="range"] {
+		@extend .form-control-range;
+	}
 
-.wpcf7 input[type="radio"] {
-	@extend .form-check-inline;
-}
+	& input[type="file"] {
+		@extend .form-control-file;
+	}
 
-.wpcf7 input[type="range"] {
- @extend .form-control-range;
-}
+	& select {
+		@extend select.form-control;
+	}
 
-.wpcf7 input[type="file"] {
- @extend .form-control-file;
-}
+	& .wpcf7-radio {
+		display: flex;
+		flex-direction: column;
+	}
 
-.wpcf7 label {
-	@extend .col-form-label;
-	display: block;
+	& label {
+		@extend .col-form-label;
+		display: block;
+	}
+
+	& input[type="submit"] {
+		@extend .btn;
+		@extend .btn-primary;
+		@extend .btn-block;
+	}
 }

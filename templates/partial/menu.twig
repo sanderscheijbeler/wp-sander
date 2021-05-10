@@ -1,10 +1,40 @@
+{#{% if menu %}#}
+{#	<ul class="mega-menu">#}
+{#		{% set locations = fn('get_nav_menu_locations') %}#}
+{#		{% if locations['megaMenu'] %}#}
+{#			{% set menu = fn('get_term', locations["megaMenu"], 'nav_menu') %}#}
+{#			{% set items = fn('wp_get_nav_menu_items', menu.name) %}#}
+{#			{% if items %}#}
+{#				{% for item in items %}#}
+{#					<li>#}
+{#						<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>#}
+
+{#						{% if fn('is_active_sidebar', 'mega-menu-widget-area-'~	item.ID ) %}#}
+{#						<div id="mega-menu-{{ item.id }}" class="mega-menu">#}
+{#							{{ fn('dynamic_sidebar', 'mega-menu-widget-area-'~ item.ID) }}#}
+{#						</div>#}
+{#						{% endif %}#}
+{#					</li>#}
+{#				{% endfor %}#}
+{#			{% endif %}#}
+{#		{% endif %}#}
+
+{#	{% for item in menu %}#}
+{#		<li class="{{ item.classes | join(' ') }}">#}
+{#			<a target="{{ item.target }}" href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>#}
+{#			{% include "partial/menu.twig" with {'menu': item.children} %}#}
+{#		</li>#}
+{#	{% endfor %}#}
+{#	</ul>#}
+{#{% endif %}#}
+
 {% if menu %}
 	<ul>
-	{% for item in menu %}
-		<li class="{{ item.classes | join(' ') }}">
-			<a target="{{ item.target }}" href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
-			{% include "partial/menu.twig" with {'menu': item.children} %}
-		</li>
-	{% endfor %}
+		{% for item in menu %}
+			<li class="{{ item.classes | join(' ') }}">
+				<a target="{{ item.target }}" href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
+				{% include "partial/menu.twig" with {'menu': item.children} %}
+			</li>
+		{% endfor %}
 	</ul>
 {% endif %}
